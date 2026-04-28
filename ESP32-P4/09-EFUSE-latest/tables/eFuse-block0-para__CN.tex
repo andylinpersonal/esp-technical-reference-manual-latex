@@ -1,0 +1,95 @@
+
+\begin{longtable}[l]{ |m{8.2cm}|r|c|r|m{9cm}| }    
+\caption{eFuse BLOCK0 中的参数}
+    \label{tab:efuse-block0-para}
+    \\\hline
+    \rowcolor{lightgray}
+    \textbf{参数} & \textbf{\thead{位宽}} & \textbf{\thead{硬件\\使用}} & \textbf{\thead{\hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS} \\烧写保护位}}
+    & \textbf{功能描述} \\
+    \endfirsthead
+    \multicolumn{5}{c}{\bfseries \tablename\ \thetable{} -- 续上页}\\\hline
+    \rowcolor{lightgray}
+    \textbf{参数} & \textbf{\thead{位宽}} & \textbf{\thead{硬件\\使用}} & \textbf{\thead{\hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS} \\烧写保护位}}
+    & \textbf{功能描述} \\
+    \endhead 
+    \multicolumn{5}{r}{\textbf{下页继续}} \\
+    \endfoot
+    \endlastfoot
+    \hline    
+    \textbf{\hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS}}  & 32 & Y & N/A & 表示是否禁用 eFuse 控制器对 eFuse 位的烧写。\\
+    \hline
+    \textbf{\hyperref[fielddesc:EFUSERDDIS]{EFUSE\_RD\_DIS}}  & 7 & Y & 0  & 表示是否禁用从 eFuse 存储器的 BLOCK4 \verb+~+ BLOCK10 读取数据。 \\
+    \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_0\_1} & 2 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 Flash 扇区（Flash 扇区大小为 0x1000）。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_DIS\_USB\_JTAG} & 1 & Y & 2 & 设置此位以禁用 USB 设备模块中 USB 切换到 JTAG 的功能。 \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_2\_2} & 1 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISFORCEDOWNLOAD]{EFUSE\_DIS\_FORCE\_DOWNLOAD} & 1 & Y & 2 & 设置此位以禁用强制芯片进入下载模式的功能。 \\ \hline
+    \hyperref[fielddesc:EFUSESPIDOWNLOADMSPIDIS]{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS} & 1 & Y & 2 & 设置此位以禁用 SYS AXI 矩阵在 boot\_mode\_download 期间访问 MSPI flash/MSPI RAM。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISTWAI]{EFUSE\_DIS\_TWAI} & 1 & Y & 2 & 设置此位以禁用 TWAI 功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEJTAGSELENABLE]{EFUSE\_JTAG\_SEL\_ENABLE} & 1 & Y & 2 & 当 \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_DIS\_PAD\_JTAG} 和 \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_DIS\_USB\_JTAG} 都等于 0 时，设置此位启用通过 strapping gpio25 来选择 usb\_to\_jtag 和 pad\_to\_jtag。 \\ \hline
+    \hyperref[fielddesc:EFUSESOFTDISJTAG]{EFUSE\_SOFT\_DIS\_JTAG} & 3 & Y & 31 & 设置奇数个 1 以软件方式禁用 JTAG。JTAG 可以在 HMAC 模块中启用。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_DIS\_PAD\_JTAG} & 1 & Y & 2 & 设置此位彻底禁用 JTAG。JTAG 将被永久禁用。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT]{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT} & 1 & Y & 2 & 设置此位以禁用 flash 手动加密功能（SPI 引导模式除外）。 \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_3\_6} & 4 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。\\ \hline
+    \hyperref[fielddesc:EFUSEUSBPHYSEL]{EFUSE\_USB\_PHY\_SEL} & 1 & Y & 30 & 配置两个 PHY 与 USB 接口之间的对应关系。\\ \hline
+    \hyperref[fielddesc:EFUSEHUKGENSTATE]{EFUSE\_HUK\_GEN\_STATE} & 5 & Y & 19 & 设置这些位以控制 HUK 生成模式的验证。当 1 的位数为偶数时该值有效，为奇数时无效。 
+\\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_7\_7} & 1 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 Flash 扇区（Flash 扇区大小为 0x1000）。  \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_8\_10} & 3 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 Flash 扇区（Flash 扇区大小为 0x1000）。  \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_11\_11} & 1 & N & N/A & 表示当主引导程序失败时，ROM 引导程序使用的恢复引导程序的起始 Flash 扇区（Flash 扇区大小为 0x1000）。  \\ \hline
+    \hyperref[fielddesc:EFUSEKMRNDSWITCHCYCLE]{EFUSE\_KM\_RND\_SWITCH\_CYCLE} & 1 & Y & 1 & 设置这些位以控制密钥管理器随机数切换周期。\\ \hline
+    \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE} & 4 & Y & 1 & 此字段与 \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H} 一起，组成 {EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE\_\-H, EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE[3:0]}。每个位控制对应的密钥是否只能部署一次。\\ \hline
+    \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY} & 4 & Y & 1 & 此字段与 EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H 一起，组成 {EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY\_\-H, EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY[3:0]}。每个位决定对应的密钥是否必须来自密钥管理器。 \\ \hline
+    \hyperref[fielddesc:EFUSEFORCEDISABLESWINITKEY]{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY} & 1 & Y & 1 & 设置此位以禁用软件写入的初始化密钥，并强制使用 efuse\_init\_key。 \\ \hline
+    \hyperref[fielddesc:EFUSEKMXTSKEYLENGTH256]{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256} & 1 & N & 1 & 设置此位以选用 XTS-512 做 Flash 加密；否则密钥管理器使用 XTS-256。 \\ \hline
+    \hyperref[fielddesc:EFUSEECCFORCECONSTTIME]{EFUSE\_ECC\_FORCE\_CONST\_TIME} & 1 & Y & 14 & 设置此位以永久开启 ECC 恒定时间模式。 \\ \hline
+    \hyperref[fielddesc:EFUSEWDTDELAYSEL]{EFUSE\_WDT\_DELAY\_SEL} & 1 & Y & 2 & 选择 LP WDT 超时阈值。 \\ \hline
+    \hyperref[fielddesc:EFUSESPIBOOTCRYPTCNT]{EFUSE\_SPI\_BOOT\_CRYPT\_CNT} & 3 & Y & 4 & 设置此位以启用 SPI 引导加密/解密。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE0]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0} & 1 & N & 5 & 设置此位以启用撤销第一个安全引导密钥。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE1]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1} & 1 & N & 6 & 设置此位以启用撤销第二个安全引导密钥。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE2]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2} & 1 & N & 7 & 设置此位以启用撤销第三个安全引导密钥。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE0]{EFUSE\_KEY\_PURPOSE\_0} & 4 & Y & 8 & Key0 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE1]{EFUSE\_KEY\_PURPOSE\_1} & 4 & Y & 9 & Key1 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE2]{EFUSE\_KEY\_PURPOSE\_2} & 4 & Y & 10 & Key2 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE3]{EFUSE\_KEY\_PURPOSE\_3} & 4 & Y & 11 & Key3 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE4]{EFUSE\_KEY\_PURPOSE\_4} & 4 & Y & 12 & Key4 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE5]{EFUSE\_KEY\_PURPOSE\_5} & 4 & Y & 13 & Key5 的用途。 \\ \hline
+    \hyperref[fielddesc:EFUSESECDPALEVEL]{EFUSE\_SEC\_DPA\_LEVEL} & 2 & Y & 14 & 配置时钟随机分频模式以确定 DPA 安全级别。 \\ \hline
+    \hyperref[fielddesc:EFUSEXTSDPACLKENABLE]{EFUSE\_XTS\_DPA\_CLK\_ENABLE} & 1 & Y & 14 & 设置此位以启用 xts 时钟抗 DPA 攻击功能。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTEN]{EFUSE\_SECURE\_BOOT\_EN} & 1 & N & 15 & 设置此位以启用安全引导。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE]{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE} & 1 & N & 16 & 设置此位以启用撤销激进安全引导。 \\ \hline
+    \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H} & 1 & Y & 1 & 此字段与 \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE} 一起，组成 {EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE\_\-H, EFUSE\_\-KM\_DEPLOY\_\-ONLY\_\-ONCE[3:0]}。每个位控制对应的密钥是否只能部署一次。\\ \hline
+
+    \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H} & 1 & Y & 1 & EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY 和 EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY 共同组成一个字段：{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H, EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]}。设置每个位以控制对应的密钥是否必须来自密钥管理器。  \\ \hline
+    \hyperref[fielddesc:EFUSEFLASHECCEN]{EFUSE\_FLASH\_ECC\_EN} & 1 & N & 18 & 设置此位以启用 Flash 引导的 ECC。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBOTGDOWNLOADMODE]{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE} & 1 & N & 18 & 设置此位以禁用通过 USB-OTG 下载。 \\ \hline
+    \hyperref[fielddesc:EFUSEFLASHTPUW]{EFUSE\_FLASH\_TPUW} & 4 & N & 18 & 配置 Flash 上电后的等待时间，单位为 ms。\\ \hline
+    \hyperref[fielddesc:EFUSEDISDOWNLOADMODE]{EFUSE\_DIS\_DOWNLOAD\_MODE} & 1 & N & 18 & 设置此位以禁用下载模式（boot\_mode[3:0] = 0, 1, 2, 4, 5, 6, 7）。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISDIRECTBOOT]{EFUSE\_DIS\_DIRECT\_BOOT} & 1 & N & 18 & 设置此位以禁用直接引导模式。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT]{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT} & 1 & N & 18 & 设置此位以禁用 ROM 引导期间的 USB-Serial-JTAG 打印。 \\ \hline
+    \hyperref[fielddesc:EFUSELOCKKMKEY]{EFUSE\_LOCK\_KM\_KEY} & 1 & N & 1 & 设置此位以在部署后锁定密钥管理器密钥。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE]{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE} & 1 & N & 18 & 设置此位以禁用 USB-Serial-JTAG 下载功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEENABLESECURITYDOWNLOAD]{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD} & 1 & N & 18 & 设置此位以启用安全下载模式。 \\ \hline
+    \hyperref[fielddesc:EFUSEUARTPRINTCONTROL]{EFUSE\_UART\_PRINT\_CONTROL} & 2 & N & 18 & 设置 UART 打印的类型。 \\ \hline
+    \hyperref[fielddesc:EFUSEFORCESENDRESUME]{EFUSE\_FORCE\_SEND\_RESUME} & 1 & N & 18 & 设置此位以强制 ROM 代码在 SPI 引导期间发送 resume 命令。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREVERSION]{EFUSE\_SECURE\_VERSION} & 16 & N & 18 & ESP-IDF 防回滚功能使用的安全版本。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE]{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE} & 1 & N & 18 & 表示在使能安全启动时，是否禁用唤醒时的快速验证 (FAST VERIFY ON WAKE) 功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEHYSENPAD]{EFUSE\_HYS\_EN\_PAD} & 1 & Y & 2 & 设置这些位以启用 PAD0~27 的滞回功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE0H]{EFUSE\_KEY\_PURPOSE\_0\_H} & 1 & Y & 8 & Key0 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE1H]{EFUSE\_KEY\_PURPOSE\_1\_H} & 1 & Y & 9 & Key1 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE2H]{EFUSE\_KEY\_PURPOSE\_2\_H} & 1 & Y & 10 & Key2 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE3H]{EFUSE\_KEY\_PURPOSE\_3\_H} & 1 & Y & 11 & Key3 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE4H]{EFUSE\_KEY\_PURPOSE\_4\_H} & 1 & Y & 12 & Key4 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSE0PXATIEHSEL0]{EFUSE\_0PXA\_TIEH\_SEL\_0} & 2 & Y & 2 & 输出 LDO VO0 tieh 源选择。 \\ \hline
+    \hyperref[fielddesc:EFUSEPVTGLITCHEN]{EFUSE\_PVT\_GLITCH\_EN} & 1 & Y & 3 & 表示是否启用 PVT 电源毛刺监控功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE5H]{EFUSE\_KEY\_PURPOSE\_5\_H} & 1 & Y & 13 & Key5 的用途。第 5 位。 \\ \hline
+    \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H} & 1 & Y & 1 & 和 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE} 共同组成一个字段：{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H, EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]}。设置每个位以控制对应的密钥的新值部署的部署模式是否被禁用。 \\ \hline
+    \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE} & 4 & Y & 1 & 此字段与 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H} 一起，组成一个完整字段 {EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H, EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE[3:0]}。每个位控制对应的密钥的新值部署的部署模式是否被禁用。 \\ \hline
+    \hyperref[fielddesc:EFUSEXTSDPAPSEUDOLEVEL]{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL} & 2 & Y & 14 & 设置此位以控制 xts 伪轮抗 dpa 攻击功能。 \\ \hline
+    \hyperref[fielddesc:EFUSEHPPWRSRCSEL]{EFUSE\_HP\_PWR\_SRC\_SEL} & 1 & Y & 17 & HP 系统电源源选择。 \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTSHA384EN]{EFUSE\_SECURE\_BOOT\_SHA384\_EN} & 1 & N & N/A & 表示是否启用使用 SHA-384 的安全引导。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISWDT]{EFUSE\_DIS\_WDT} & 1 & Y & 2 & 设置此位以禁用看门狗。 \\ \hline
+    \hyperref[fielddesc:EFUSEDISSWD]{EFUSE\_DIS\_SWD} & 1 & Y & 2 & 设置此位以禁用超级看门狗。 \\ \hline
+    \hyperref[fielddesc:EFUSEPVTGLITCHMODE]{EFUSE\_PVT\_GLITCH\_MODE} & 2 & Y & 3 & 用于配置毛刺模式。 \\ \hline
+    \hline
+\end{longtable}

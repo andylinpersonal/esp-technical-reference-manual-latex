@@ -1,0 +1,93 @@
+
+\begin{longtable}[l]{ |m{8.2cm}|r|c|r|m{9cm}| }    
+\caption{Parameters in eFuse BLOCK0}
+    \label{tab:efuse-block0-para}
+    \\\hline
+    \rowcolor{lightgray}
+    \textbf{Parameters} & \textbf{\thead{Bit \\Width}} & \textbf{\thead{Accessible \\by Hardware}} & \textbf{\thead{Write Protection \\by \hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS} \\Bit Number}} & \textbf{Description} \\
+    \endfirsthead
+    \multicolumn{5}{c}{\bfseries \tablename\ \thetable{} -- cont'd from previous page}\\\hline
+    \rowcolor{lightgray}
+    \textbf{Parameters} & \textbf{\thead{Bit \\Width}} & \textbf{\thead{Accessible \\by Hardware}} & \textbf{\thead{Write Protection \\by \hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS} \\Bit Number}}
+    & \textbf{Description} \\
+    \endhead 
+    \multicolumn{5}{r}{\textbf{Cont'd on next page}} \\
+    \endfoot
+    \endlastfoot
+    \hline    
+    \textbf{\hyperref[fielddesc:EFUSEWRDIS]{EFUSE\_WR\_DIS}}  & 32 & Y & N/A & Represents whether writing of eFuse bits by eFuse controller is disabled.\\
+    \hline
+    \textbf{\hyperref[fielddesc:EFUSERDDIS]{EFUSE\_RD\_DIS}}  & 7 & Y & 0  & Represents whether reading data from BLOCK4 \verb+~+ BLOCK10 in eFuse memory by users is disabled. \\
+    \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_0\_1} & 2 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails. \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_DIS\_USB\_JTAG} & 1 & Y & 2 & Represents whether the USB-to-JTAG function in the USB device module is disabled. \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_2\_2} & 1 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails. \\ \hline
+    \hyperref[fielddesc:EFUSEDISFORCEDOWNLOAD]{EFUSE\_DIS\_FORCE\_DOWNLOAD} & 1 & Y & 2 & Set this bit to disable the function that forces chip into download mode. \\ \hline
+    \hyperref[fielddesc:EFUSESPIDOWNLOADMSPIDIS]{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS} & 1 & Y & 2 & Set this bit to disable accessing MSPI flash/MSPI RAM by SYS AXI matrix during boot\_mode\_download. \\ \hline
+    \hyperref[fielddesc:EFUSEDISTWAI]{EFUSE\_DIS\_TWAI} & 1 & Y & 2 & Set this bit to disable TWAI function. \\ \hline
+    \hyperref[fielddesc:EFUSEJTAGSELENABLE]{EFUSE\_JTAG\_SEL\_ENABLE} & 1 & Y & 2 & Set this bit to enable selection between usb\_to\_jtag and pad\_to\_jtag through strapping gpio25 when both \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_DIS\_PAD\_JTAG} and \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_DIS\_USB\_JTAG} are equal to 0. \\ \hline
+    \hyperref[fielddesc:EFUSESOFTDISJTAG]{EFUSE\_SOFT\_DIS\_JTAG} & 3 & Y & 31 & Represents whether JTAG is soft-disabled. It can be restarted via HMAC. Odd count of bits with a value of 1: Disabled, Even count of bits with a value of 1: Enabled. \\ \hline
+    \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_DIS\_PAD\_JTAG} & 1 & Y & 2 & Set this bit to hard-disable JTAG. (Permanent disable) \\ \hline
+    \hyperref[fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT]{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT} & 1 & Y & 2 & Set this bit to disable flash manual encrypt function (except in SPI boot mode). \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_3\_6} & 4 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails.\\ \hline
+    \hyperref[fielddesc:EFUSEUSBPHYSEL]{EFUSE\_USB\_PHY\_SEL} & 1 & Y & 30 &  Configures the corresponding relationship between the two PHYs and the USB interfaces.\\ \hline
+    \hyperref[fielddesc:EFUSEHUKGENSTATE]{EFUSE\_HUK\_GEN\_STATE} & 5 & Y & 19 & Set the bits to control validation of HUK generate mode. The value is valid when the count of 1 bits is even, and invalid when odd. \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_7\_7} & 1 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails.  \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_8\_10} & 3 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails.  \\ \hline
+    \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111]{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_\-SECTOR\_11\_11} & 1 & N & N/A & Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails.  \\ \hline
+    \hyperref[fielddesc:EFUSEKMRNDSWITCHCYCLE]{EFUSE\_KM\_RND\_SWITCH\_CYCLE} & 1 & Y & 1 & Set the bits to control key manager random number switch cycle.\\ \hline
+    \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE} & 4 & Y & 1 &  This field, together with EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H form one field: {EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H, EFUSE\_KM\_DEPLOY\_ONLY\_ONCE[3:0]}. Set each bit to control whether corresponding key can only be deployed once. 1 is true, 0 is false. bit 0: ecsda, bit 1: xts, bit2: hmac, bit3: ds, bit4: psram \\ \hline
+    \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY} & 4 & Y & 1 & This field, together with EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY\_\-H, forms {EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY\_\-H, EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY[3:0]}. Each bit determines whether the corresponding key must be sourced from the key manager. \\ \hline
+    \hyperref[fielddesc:EFUSEFORCEDISABLESWINITKEY]{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY} & 1 & Y & 1 & Set this bit to disable software written init key, and force use efuse\_init\_key. \\ \hline
+    \hyperref[fielddesc:EFUSEKMXTSKEYLENGTH256]{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256} & 1 & N & 1 & Set this bit to use XTS-512 key for flash encryption, otherwise XTS-256 key is used when the key manager is enabled.\\ \hline
+    \hyperref[fielddesc:EFUSEECCFORCECONSTTIME]{EFUSE\_ECC\_FORCE\_CONST\_TIME} & 1 & Y & 14 & Set this bit to permanently turn on ECC const-time mode. \\ \hline
+    \hyperref[fielddesc:EFUSEWDTDELAYSEL]{EFUSE\_WDT\_DELAY\_SEL} & 1 & Y & 2 & Select LP WDT timeout threshold. \\ \hline
+    \hyperref[fielddesc:EFUSESPIBOOTCRYPTCNT]{EFUSE\_SPI\_BOOT\_CRYPT\_CNT} & 3 & Y & 4 & Set this bit to enable SPI boot encrypt/decrypt. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE0]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0} & 1 & N & 5 & Set this bit to enable revoking first secure boot key. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE1]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1} & 1 & N & 6 & Set this bit to enable revoking second secure boot key. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE2]{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2} & 1 & N & 7 & Set this bit to enable revoking third secure boot key. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE0]{EFUSE\_KEY\_PURPOSE\_0} & 4 & Y & 8 & Purpose of Key0. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE1]{EFUSE\_KEY\_PURPOSE\_1} & 4 & Y & 9 & Purpose of Key1. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE2]{EFUSE\_KEY\_PURPOSE\_2} & 4 & Y & 10 & Purpose of Key2. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE3]{EFUSE\_KEY\_PURPOSE\_3} & 4 & Y & 11 & Purpose of Key3. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE4]{EFUSE\_KEY\_PURPOSE\_4} & 4 & Y & 12 & Purpose of Key4. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE5]{EFUSE\_KEY\_PURPOSE\_5} & 4 & Y & 13 & Purpose of Key5. \\ \hline
+    \hyperref[fielddesc:EFUSESECDPALEVEL]{EFUSE\_SEC\_DPA\_LEVEL} & 2 & Y & 14 & Configures the clock random divide mode to determine the DPA secure level. \\ \hline
+    \hyperref[fielddesc:EFUSEXTSDPACLKENABLE]{EFUSE\_XTS\_DPA\_CLK\_ENABLE} & 1 & Y & 14 & Sets this bit to enable xts clock anti-DPA attack function. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTEN]{EFUSE\_SECURE\_BOOT\_EN} & 1 & N & 15 & Set this bit to enable secure boot. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE]{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE} & 1 & N & 16 & Set this bit to enable revoking aggressive secure boot. \\ \hline
+    \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H} & 1 & Y & 1 & This field, together with EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE, forms  {EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE\_\-H, EFUSE\_\-KM\_DEPLOY\_\-ONLY\_\-ONCE[3:0]}. Each bit controls whether the corresponding key can be deployed only once.\\ \hline
+
+    \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H} & 1 & Y & 1 & Form one field together with EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY: {EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H, EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]}. Set each bit to control whether corresponding key must come from key manager.  \\ \hline
+    \hyperref[fielddesc:EFUSEFLASHECCEN]{EFUSE\_FLASH\_ECC\_EN} & 1 & N & 18 & Set this bit to enable ECC for flash boot. \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBOTGDOWNLOADMODE]{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE} & 1 & N & 18 & Set this bit to disable download via USB-OTG. \\ \hline
+    \hyperref[fielddesc:EFUSEFLASHTPUW]{EFUSE\_FLASH\_TPUW} & 4 & N & 18 & Configures flash waiting time after power-up, in unit of ms.\\ \hline
+    \hyperref[fielddesc:EFUSEDISDOWNLOADMODE]{EFUSE\_DIS\_DOWNLOAD\_MODE} & 1 & N & 18 & Set this bit to disable download mode (boot\_mode[3:0] = 0, 1, 2, 4, 5, 6, 7). \\ \hline
+    \hyperref[fielddesc:EFUSEDISDIRECTBOOT]{EFUSE\_DIS\_DIRECT\_BOOT} & 1 & N & 18 & Set this bit to disable direct boot mode. \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT]{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT} & 1 & N & 18 & Set this bit to disable USB-Serial-JTAG print during rom boot. \\ \hline
+    \hyperref[fielddesc:EFUSELOCKKMKEY]{EFUSE\_LOCK\_KM\_KEY} & 1 & N & 1 & set this bit to lock the key manager key after deploy. \\ \hline
+    \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE]{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE} & 1 & N & 18 & Set this bit to disable the USB-Serial-JTAG download function. \\ \hline
+    \hyperref[fielddesc:EFUSEENABLESECURITYDOWNLOAD]{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD} & 1 & N & 18 & Set this bit to enable security download mode. \\ \hline
+    \hyperref[fielddesc:EFUSEUARTPRINTCONTROL]{EFUSE\_UART\_PRINT\_CONTROL} & 2 & N & 18 & Set the type of UART printing. \\ \hline
+    \hyperref[fielddesc:EFUSEFORCESENDRESUME]{EFUSE\_FORCE\_SEND\_RESUME} & 1 & N & 18 & Set this bit to force ROM code to send a resume command during SPI boot. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREVERSION]{EFUSE\_SECURE\_VERSION} & 16 & N & 18 & Secure version used by ESP-IDF anti-rollback feature. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE]{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE} & 1 & N & 18 & Represents whether FAST VERIFY ON WAKE is disabled when Secure Boot is enabled. \\ \hline
+    \hyperref[fielddesc:EFUSEHYSENPAD]{EFUSE\_HYS\_EN\_PAD} & 1 & Y & 2 & Set bits to enable hysteresis function of PAD0~27. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE0H]{EFUSE\_KEY\_PURPOSE\_0\_H} & 1 & Y & 8 & Purpose of Key0 (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE1H]{EFUSE\_KEY\_PURPOSE\_1\_H} & 1 & Y & 9 & Purpose of Key1 (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE2H]{EFUSE\_KEY\_PURPOSE\_2\_H} & 1 & Y & 10 & Purpose of Key2. (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE3H]{EFUSE\_KEY\_PURPOSE\_3\_H} & 1 & Y & 11 & Purpose of Key3. (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE4H]{EFUSE\_KEY\_PURPOSE\_4\_H} & 1 & Y & 12 & Purpose of Key4. (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSE0PXATIEHSEL0]{EFUSE\_0PXA\_TIEH\_SEL\_0} & 2 & Y & 2 & Output LDO VO0 tieh source select. \\ \hline
+    \hyperref[fielddesc:EFUSEPVTGLITCHEN]{EFUSE\_PVT\_GLITCH\_EN} & 1 & Y & 3 & Represents whether to enable PVT power glitch monitor function. \\ \hline
+    \hyperref[fielddesc:EFUSEKEYPURPOSE5H]{EFUSE\_KEY\_PURPOSE\_5\_H} & 1 & Y & 13 & Purpose of Key5. (5th bit). \\ \hline
+    \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H} & 1 & Y & 1 & EFUSE\_KM\_DISABLE\_DEPLOY\_MODE and EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H together form one field: {EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H, EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]}. Set each bit to control whether corresponding key's deploy mode of new value deployment is disabled. \\ \hline
+    \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE} & 4 & Y & 1 & This field, together with EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H, forms a complete field {EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H, EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE[3:0]}. Each bit controls whether the deploy mode for new value deployment of the corresponding key is disabled. \\ \hline
+    \hyperref[fielddesc:EFUSEXTSDPAPSEUDOLEVEL]{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL} & 2 & Y & 14 & Sets this bit to control the xts pseudo-round anti-dpa attack function. \\ \hline
+    \hyperref[fielddesc:EFUSEHPPWRSRCSEL]{EFUSE\_HP\_PWR\_SRC\_SEL} & 1 & Y & 17 & HP system power source select. \\ \hline
+    \hyperref[fielddesc:EFUSESECUREBOOTSHA384EN]{EFUSE\_SECURE\_BOOT\_SHA384\_EN} & 1 & N & N/A & Represents whether secure boot using SHA-384 is enabled. \\ \hline
+    \hyperref[fielddesc:EFUSEDISWDT]{EFUSE\_DIS\_WDT} & 1 & Y & 2 & Set this bit to disable watch dog. \\ \hline
+    \hyperref[fielddesc:EFUSEDISSWD]{EFUSE\_DIS\_SWD} & 1 & Y & 2 & Set bit to disable super-watchdog. \\ \hline
+    \hyperref[fielddesc:EFUSEPVTGLITCHMODE]{EFUSE\_PVT\_GLITCH\_MODE} & 2 & Y & 3 & Use to configure glitch mode. \\ \hline
+    \hline
+\end{longtable}
