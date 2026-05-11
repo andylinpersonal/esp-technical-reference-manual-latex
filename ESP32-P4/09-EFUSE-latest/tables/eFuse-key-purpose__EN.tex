@@ -1,0 +1,31 @@
+\begin{longtable}[c]{ | C{1.5cm} | p{10cm} | }
+\caption{Secure Key Purpose Values}
+\label{tab:efuse-key-purpose}
+    \\\hline
+    \rowcolor{lightgray}
+        \textbf{Key Purpose Values} &  \textbf{Purposes} \\
+    \endfirsthead
+    
+    \multicolumn{2}{c}{\bfseries \tablename\ \thetable{} -- cont'd from previous page}\\\hline
+    
+    \rowcolor{lightgray}
+        \textbf{Key Purpose Values} &  \textbf{Purposes} \\
+    \endhead
+    \multicolumn{2}{r}{\textbf{Cont'd on next page}} \\
+    \endfoot
+    \endlastfoot
+    \hline
+0 & Designated for user use \\\hline
+1 & Designated for ECDSA\_KEY \\\hline
+2 & Designated for XTS\_AES\_256\_KEY\_1 \\\hline
+3 & Designated for XTS\_AES\_256\_KEY\_2 \\ \hline
+4 & Designated for XTS\_AES\_128\_KEY (for flash/SRAM encryption and decryption) \\\hline
+5 & Designated for HMAC Downstream mode (JTAG and Digital Signature) \\\hline
+6 & Designated for JTAG in HMAC Downstream mode \\\hline
+7 & Designated for Digital Signature in HMAC Downstream mode \\\hline
+8 & Designated for HMAC Upstream mode \\\hline
+9 & Designated for SECURE\_BOOT\_DIGEST0 (secure boot key digest) \\\hline
+10 & Designated for SECURE\_BOOT\_DIGEST1 (secure boot key digest) \\\hline
+11 & Designated for SECURE\_BOOT\_DIGEST2 (secure boot key digest) \\\hline
+12 & Designated for KM\_INIT\_KEY \\\hline
+\end{longtable}

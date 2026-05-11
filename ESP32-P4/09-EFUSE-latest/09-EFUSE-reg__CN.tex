@@ -1,0 +1,1002 @@
+\begin{register}{H}{EFUSE\_PGM\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x0000+0x4*\regindex{n}}\label{regdesc:EFUSEPGMDATANREG}
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DATA\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPGMDATAN}\item [EFUSE\_PGM\_DATA\_\regindex{n}] 配置待烧写数据的第 \regindex{n} 个 32 位数据。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_PGM\_CHECK\_VALUE\regindex{n}\_REG (\regindex{n}: 0-2)}{0x0020+0x4*\regindex{n}}\label{regdesc:EFUSEPGMCHECKVALUENREG}
+\regfield{\rotatebox{15}{EFUSE\_PGM\_RS\_DATA\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPGMRSDATAN}\item [EFUSE\_PGM\_RS\_DATA\_\regindex{n}] 配置待烧写的第 \regindex{n} 个 RS 码。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_WR\_DIS\_REG}{0x002C}\label{regdesc:EFUSERDWRDISREG}
+\regfield{\rotatebox{15}{EFUSE\_WR\_DIS}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEWRDIS}\item [EFUSE\_WR\_DIS] 表示是否禁用 eFuse 存储器各个位的烧写。关于该字段位与 eFuse 存储器位的映射关系，请参考表 \ref{tab:efuse-block0-para} 和表 \ref{tab:efuse-block-1-10-para}。 (RO)\\1: 禁用\\0: 使能
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA0\_REG}{0x0030}\label{regdesc:EFUSERDREPEATDATA0REG}
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HUK\_GEN\_STATE}}{5}{26}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_PHY\_SEL}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6}}{4}{21}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_PAD\_JTAG}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SOFT\_DIS\_JTAG}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_JTAG\_SEL\_ENABLE}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_TWAI}}{1}{14}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS}}{1}{13}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_FORCE\_DOWNLOAD}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{11}{0}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2}}{1}{10}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_JTAG}}{1}{9}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1}}{2}{7}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_DIS}}{7}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDDIS}\item [EFUSE\_RD\_DIS] 表示是否禁用 eFuse 各个 block (block4~block10) 的读取。 (RO)\\1: 禁用\\0: 使能
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：此功能被禁用
+\label{fielddesc:EFUSEDISUSBJTAG}\item [EFUSE\_DIS\_USB\_JTAG] 表示是否禁用 USB-Serial-JTAG 模块中 USB 转 JTAG 功能。 (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：此功能被禁用
+\label{fielddesc:EFUSEDISFORCEDOWNLOAD}\item [EFUSE\_DIS\_FORCE\_DOWNLOAD] 表示是否禁用强制芯片进入 Download 模式的功能。 (RO)
+\label{fielddesc:EFUSESPIDOWNLOADMSPIDIS}\item [EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS] 表示在 boot\_mode\_download 过程中是否关闭 SYS AXI 对 MSPI flash/MSPI RAM 的访问。 (RO)
+\label{fielddesc:EFUSEDISTWAI}\item [EFUSE\_DIS\_TWAI] 表示是否禁用 TWAI 功能。 (RO)
+\label{fielddesc:EFUSEJTAGSELENABLE}\item [EFUSE\_JTAG\_SEL\_ENABLE] 表示当 EFUSE\_DIS\_PAD\_JTAG 和 EFUSE\_DIS\_USB\_JTAG 均配置为 0 时，是否允许通过 strapping 管脚 GPIO25 选择 JTAG 信号源（usb\_to\_jtag 或 pad\_to\_jtag）。 (RO)
+\label{fielddesc:EFUSESOFTDISJTAG}\item [EFUSE\_SOFT\_DIS\_JTAG] 表示是否软禁用 PAD JTAG。可通过 HMAC 重新启动。 (RO)\\奇数个比特为 1：禁用\\偶数个比特为 1：使能
+\label{fielddesc:EFUSEDISPADJTAG}\item [EFUSE\_DIS\_PAD\_JTAG] 表示是否硬禁用 PAD JTAG（永久）。 (RO)
+\label{fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT}\item [EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT] 表示是否禁用 flash 手动加密功能（SPI 启动模式除外）。 (RO)
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA0\_REG}{0x0030}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：此功能被禁用
+\label{fielddesc:EFUSEUSBPHYSEL}\item [EFUSE\_USB\_PHY\_SEL] 配置两个 PHY 与 USB 接口的对应关系。 (RO)\\0: GPIO24/GPIO25 上的 PHY 连接到 usb\_device，而 GPIO26/GPIO27 上的 PHY 连接到 usb\_otg11\\1: GPIO26/GPIO27 上的 PHY 连接到 usb\_device，而 GPIO24/GPIO25 上的 PHY 连接到 usb\_otg11
+\label{fielddesc:EFUSEHUKGENSTATE}\item [EFUSE\_HUK\_GEN\_STATE] 表示 HUK 生成模式的验证状态。 (RO)\\值为 1 的位数为奇数：无效\\值为 1 的位数为偶数：有效
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：恢复引导程序功能被禁用
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA1\_REG}{0x0034}\label{regdesc:EFUSERDREPEATDATA1REG}
+\regfield{\rotatebox{18}{EFUSE\_KEY\_PURPOSE\_1}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{18}{EFUSE\_KEY\_PURPOSE\_0}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{18}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2}}{1}{23}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1}}{1}{22}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0}}{1}{21}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_SPI\_BOOT\_CRYPT\_CNT}}{3}{18}{{0x0}}%
+\regfield{\rotatebox{18}{EFUSE\_WDT\_DELAY\_SEL}}{1}{17}{{0}}%
+\regfield{\rotatebox{18}{(reserved)}}{1}{16}{0}%
+\regfield{\rotatebox{18}{EFUSE\_ECC\_FORCE\_CONST\_TIME}}{1}{15}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256}}{1}{14}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY}}{1}{13}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY}}{4}{9}{{0x0}}%
+\regfield{\rotatebox{18}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE}}{4}{5}{{0x0}}%
+\regfield{\rotatebox{18}{EFUSE\_KM\_RND\_SWITCH\_CYCLE}}{1}{4}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11}}{1}{3}{{0}}%
+\regfield{\rotatebox{18}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：恢复引导程序功能被禁用
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11] 表示恢复引导程序的起始 flash 扇区（flash 扇区大小为 0x1000）。当主引导程序失败时，ROM 引导程序从此扇区加载并执行恢复引导程序。 (RO)\\0 和 0xFFF：恢复引导程序功能被禁用
+\label{fielddesc:EFUSEKMRNDSWITCHCYCLE}\item [EFUSE\_KM\_RND\_SWITCH\_CYCLE] 表示密钥管理器随机数切换周期。 (RO)\\0: 由寄存器控制\\1: 8 个 km clk 周期\\2: 16 个 km 周期\\3: 32 个 km 周期
+
+\label{fielddesc:EFUSEKMDEPLOYONLYONCE}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE] EFUSE\_KM\_DEPLOY\_ONLY\_ONCE 和 EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H 共同组成一个字段：{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H, EFUSE\_KM\_DEPLOY\_ONLY\_ONCE[3:0]}。表示每个对应密钥是否只能部署一次。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram 
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA1\_REG}{0x0034}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEY}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY] EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY 和 EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H 共同组成一个字段：{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H, EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]}。表示每个对应密钥是否必须来自密钥管理器。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram 
+\label{fielddesc:EFUSEFORCEDISABLESWINITKEY}\item [EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY] 表示是否禁用软件写入的初始化密钥，并强制使用 efuse\_init\_key。 (RO)
+\label{fielddesc:EFUSEKMXTSKEYLENGTH256}\item [EFUSE\_KM\_XTS\_KEY\_LENGTH\_256] 表示 flash 加密是否使用 XTS-512 密钥。否则，密钥管理器将使用 XTS-256 密钥。 (RO)
+
+\label{fielddesc:EFUSEECCFORCECONSTTIME}\item [EFUSE\_ECC\_FORCE\_CONST\_TIME] 表示 ECC 常量时间模式是否永久开启。 (RO)
+\label{fielddesc:EFUSEWDTDELAYSEL}\item [EFUSE\_WDT\_DELAY\_SEL] 表示 LP WDT 超时阈值选择，计算公式为：
+\[
+    \text{startup\_timeout} = \text{initial\_timeout\_value} \times 2^{(\text{EFUSE\_WDT\_DELAY\_SEL} + 1)}
+    \]
+(RO)
+\label{fielddesc:EFUSESPIBOOTCRYPTCNT}\item [EFUSE\_SPI\_BOOT\_CRYPT\_CNT] 表示是否使能 SPI boot 加解密。 (RO)\\奇数个比特为 1：使能\\偶数个比特为 1：不使能
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE0}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0] 表示是否撤销安全启动秘钥 0。 (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE1}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1] 表示是否撤销安全启动秘钥 1。 (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE2}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2] 表示是否撤销安全启动秘钥 2。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0}\item [EFUSE\_KEY\_PURPOSE\_0] 表示 Key0 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE1}\item [EFUSE\_KEY\_PURPOSE\_1] 表示 Key1 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA2\_REG}{0x0038}\label{regdesc:EFUSERDREPEATDATA2REG}
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_TPUW}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_ECC\_EN}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{24}{00}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H}}{1}{22}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_EN}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_CLK\_ENABLE}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{18}{0}%
+\regfield{\rotatebox{15}{EFUSE\_SEC\_DPA\_LEVEL}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEYPURPOSE2}\item [EFUSE\_KEY\_PURPOSE\_2] 表示 Key2 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE3}\item [EFUSE\_KEY\_PURPOSE\_3] 表示 Key3 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE4}\item [EFUSE\_KEY\_PURPOSE\_4] 表示 Key4 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE5}\item [EFUSE\_KEY\_PURPOSE\_5] 表示 Key5 用途，更多信息请见表 \ref{tab:efuse-key-purpose}。(RO)
+\label{fielddesc:EFUSESECDPALEVEL}\item [EFUSE\_SEC\_DPA\_LEVEL] 表示防 DPA 攻击的安全级别。该寄存器域实际上通过配置时钟随机分频模式来调整防 DPA 攻击的安全等级。 (RO)
+\label{fielddesc:EFUSEXTSDPACLKENABLE}\item [EFUSE\_XTS\_DPA\_CLK\_ENABLE] 表示 XTS 时钟防 DPA 攻击功能是否使能。 (RO)
+\label{fielddesc:EFUSESECUREBOOTEN}\item [EFUSE\_SECURE\_BOOT\_EN] 表示是否使能安全启动。 (RO)
+\label{fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE}\item [EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE] 表示是否使能安全启动的激进撤销。 (RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEH}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H] \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE} 和 \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H} 共同组成一个字段：EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H \& EFUSE\_KM\_DEPLOY\_ONLY\_ONCE[3:0]。表示每个对应密钥是否只能部署一次。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram 
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA2\_REG}{0x0038}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H] \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY} 和 \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H} 共同组成一个字段：EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H \& EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]。表示每个对应密钥是否必须来自密钥管理器。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+\label{fielddesc:EFUSEFLASHECCEN}\item [EFUSE\_FLASH\_ECC\_EN] 表示 flash boot 期间是否使能 ECC。 (RO)
+\label{fielddesc:EFUSEDISUSBOTGDOWNLOADMODE}\item [EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE] 表示是否禁用通过 USB-OTG 下载。 (RO)
+\label{fielddesc:EFUSEFLASHTPUW}\item [EFUSE\_FLASH\_TPUW] 表示 flash 上电等待时间。单位：ms。当值小于 15 时，等待时间为配置值。当值大于等于 15 时，等待时间固定为 30 ms。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA3\_REG}{0x003C}\label{regdesc:EFUSERDREPEATDATA3REG}
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_H}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_H}}{1}{30}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_H}}{1}{29}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_1\_H}}{1}{28}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_0\_H}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HYS\_EN\_PAD}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_VERSION}}{16}{9}{{0x00}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_SEND\_RESUME}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_UART\_PRINT\_CONTROL}}{2}{6}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_LOCK\_KM\_KEY}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DIRECT\_BOOT}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MODE}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDISDOWNLOADMODE}\item [EFUSE\_DIS\_DOWNLOAD\_MODE] 表示是否禁用所有 Download 模式。 (RO)
+\label{fielddesc:EFUSEDISDIRECTBOOT}\item [EFUSE\_DIS\_DIRECT\_BOOT] 表示是否禁用 direct boot 模式。 (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT] 表示是否禁用 ROM boot 过程中的 USB-Serial-JTAG 打印。 (RO)
+\label{fielddesc:EFUSELOCKKMKEY}\item [EFUSE\_LOCK\_KM\_KEY] 表示密钥管理器密钥在部署后是否被锁定。 (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE] 表示是否禁用 USB-Serial-JTAG 下载功能。 (RO)
+\label{fielddesc:EFUSEENABLESECURITYDOWNLOAD}\item [EFUSE\_ENABLE\_SECURITY\_DOWNLOAD] 表示是否使能安全下载。(RO)
+\label{fielddesc:EFUSEUARTPRINTCONTROL}\item [EFUSE\_UART\_PRINT\_CONTROL] 表示 UART 打印类型。 (RO)\\00: 强制打印\\01: GPIO8 低电平复位时使能打印\\10: GPIO8 高电平复位时使能打印\\11: 强制关闭打印
+\label{fielddesc:EFUSEFORCESENDRESUME}\item [EFUSE\_FORCE\_SEND\_RESUME] 表示是否强制 ROM 代码在 SPI 启动过程中发送恢复指令。 (RO)
+\label{fielddesc:EFUSESECUREVERSION}\item [EFUSE\_SECURE\_VERSION] 表示安全版本，用于 ESP-IDF 防回滚功能。 (RO)
+\label{fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE}\item [EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE] 表示安全启动使能时是否禁用 FAST VERIFY ON WAKE。 (RO)\\1: 禁用\\0: 使能
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA3\_REG}{0x003C}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+
+\label{fielddesc:EFUSEHYSENPAD}\item [EFUSE\_HYS\_EN\_PAD] 表示是否使能 PAD0~27 的迟滞功能。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0H}\item [EFUSE\_KEY\_PURPOSE\_0\_H] 表示 Key0 用途。第 5 位。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE1H}\item [EFUSE\_KEY\_PURPOSE\_1\_H] 表示 Key1 用途。第 5 位。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE2H}\item [EFUSE\_KEY\_PURPOSE\_2\_H] 表示 Key2 用途。第 5 位。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE3H}\item [EFUSE\_KEY\_PURPOSE\_3\_H] 表示 Key3 用途。第 5 位。 (RO)
+\label{fielddesc:EFUSEKEYPURPOSE4H}\item [EFUSE\_KEY\_PURPOSE\_4\_H] 表示 Key4 用途。第 5 位。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA4\_REG}{0x0040}\label{regdesc:EFUSERDREPEATDATA4REG}
+\regfield{\rotatebox{15}{(reserved)}}{8}{24}{00000000}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_MODE}}{2}{22}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_SWD}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_WDT}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_SHA384\_EN}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HP\_PWR\_SRC\_SEL}}{1}{18}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{12}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{5}{00}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_H}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{3}{0}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_EN}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_0PXA\_TIEH\_SEL\_0}}{2}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSE0PXATIEHSEL0}\item [EFUSE\_0PXA\_TIEH\_SEL\_0] 表示 LDO VO0 供电源头的控制选择。 (RO)\\0: 供电一直拉高\\1: 由 SDMMC1 外设控制\\2: 由寄存器域控制\\3: 由 SDMMC0 外设控制
+\label{fielddesc:EFUSEPVTGLITCHEN}\item [EFUSE\_PVT\_GLITCH\_EN] 表示是否使能 PVT 电源毛刺监控功能。 (RO)\\1: 使能\\0: 禁用
+\label{fielddesc:EFUSEKEYPURPOSE5H}\item [EFUSE\_KEY\_PURPOSE\_5\_H] 表示 Key5 用途。第 5 位。 (RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEH}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H] \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} 和 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} 共同组成一个字段：{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H, EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]}。表示每个对应密钥的新值部署模式是否被禁用。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODE}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE] \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} 和 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} 共同组成一个字段：{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H, EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]}。表示每个对应密钥的新值部署模式是否被禁用。 (RO)\\1: 是\\0: 否\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA4\_REG}{0x0040}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSEXTSDPAPSEUDOLEVEL}\item [EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL] 表示 XTS 伪轮防 DPA 攻击功能控制。 (RO)\\0: 由寄存器控制\\1-3: 值越大，在 XTS-AES 计算中插入的伪轮数越多
+\label{fielddesc:EFUSEHPPWRSRCSEL}\item [EFUSE\_HP\_PWR\_SRC\_SEL] 表示 HP 系统电源来源。 (RO)\\0: LDO\\1: DCDC
+\label{fielddesc:EFUSESECUREBOOTSHA384EN}\item [EFUSE\_SECURE\_BOOT\_SHA384\_EN] 表示是否使能使用 SHA-384 的安全启动。 (RO)\\0: 禁用\\1: 使能
+\label{fielddesc:EFUSEDISWDT}\item [EFUSE\_DIS\_WDT] 表示是否禁用看门狗。 (RO)
+\label{fielddesc:EFUSEDISSWD}\item [EFUSE\_DIS\_SWD] 表示是否禁用超级看门狗。 (RO)
+\label{fielddesc:EFUSEPVTGLITCHMODE}\item [EFUSE\_PVT\_GLITCH\_MODE] 配置PVT毛刺处理模式。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS0\_REG}{0x0044}\label{regdesc:EFUSERDMACSYS0REG}
+\regfield{\rotatebox{15}{EFUSE\_MAC\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMAC0}\item [EFUSE\_MAC\_0] 表示 MAC 地址低 32 位。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS1\_REG}{0x0048}\label{regdesc:EFUSERDMACSYS1REG}
+\regfield{\rotatebox{15}{(reserved)}}{16}{16}{0000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_MAC\_1}}{16}{0}{{0x00}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMAC1}\item [EFUSE\_MAC\_1] 表示 MAC 地址高 16 位。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS3\_REG}{0x0050}\label{regdesc:EFUSERDMACSYS3REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_0}}{14}{18}{{0x00}}%
+\regfield{\rotatebox{15}{(reserved)}}{18}{0}{000000000000000000}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART00}\item [EFUSE\_SYS\_DATA\_PART0\_0] 表示系统数据第 0 部分的第 1 个 14 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS4\_REG}{0x0054}\label{regdesc:EFUSERDMACSYS4REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART01}\item [EFUSE\_SYS\_DATA\_PART0\_1] 表示系统数据第 0 部分的第 1 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS5\_REG}{0x0058}\label{regdesc:EFUSERDMACSYS5REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_2}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART02}\item [EFUSE\_SYS\_DATA\_PART0\_2] 表示系统数据第 0 部分的第 2 个 32 位内容。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART1\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x005C+0x4*\regindex{n}}\label{regdesc:EFUSERDSYSPART1DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART1\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART1N}\item [EFUSE\_SYS\_DATA\_PART1\_\regindex{n}] 表示系统数据第 1 部分的第  \regindex{n} 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_USR\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x007C+0x4*\regindex{n}}\label{regdesc:EFUSERDUSRDATANREG}
+\regfield{\rotatebox{15}{EFUSE\_USR\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEUSRDATAN}\item [EFUSE\_USR\_DATA\regindex{n}] 表示 BLOCK3 (user) 第 \regindex{n} 个 32 位内容。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY0\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x009C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY0DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY0\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY0DATAN}\item [EFUSE\_KEY0\_DATA\regindex{n}] 表示 KEY0 第 \regindex{n} 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY1\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00BC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY1DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY1\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY1DATAN}\item [EFUSE\_KEY1\_DATA\regindex{n}] 表示 KEY1 第 \regindex{n} 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY2\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00DC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY2DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY2\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY2DATAN}\item [EFUSE\_KEY2\_DATA\regindex{n}] 表示 KEY2 第 \regindex{n} 个 32 位内容。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY3\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00FC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY3DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY3\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY3DATAN}\item [EFUSE\_KEY3\_DATA\regindex{n}] 表示 KEY3 第 \regindex{n} 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY4\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x011C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY4DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY4\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY4DATAN}\item [EFUSE\_KEY4\_DATA\regindex{n}] 表示 KEY4 第 \regindex{n} 个 32 位内容。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY5\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x013C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY5DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY5\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY5DATAN}\item [EFUSE\_KEY5\_DATA\regindex{n}] 表示 KEY5 第 \regindex{n} 个 32 位内容。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART2\_DATA\regindex{n}\_REG (\regindex{n}: 0-5)}{0x015C+0x4*\regindex{n}}\label{regdesc:EFUSERDSYSPART2DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART2\_\regindex{n}}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART2N}\item [EFUSE\_SYS\_DATA\_PART2\_\regindex{n}] 表示系统数据第 2 部分的第 \regindex{n} 个 32 位内容。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART2\_DATA7\_REG}{0x0178}\label{regdesc:EFUSERDSYSPART2DATA7REG}
+\regfield{\rotatebox{15}{(reserved)}}{26}{6}{00000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_OTG11\_EXCHG\_PINS}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_DEVICE\_EXCHG\_PINS}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{0}{0000}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEUSBDEVICEEXCHGPINS}\item [EFUSE\_USB\_DEVICE\_EXCHG\_PINS] 表示是否使能 USB-Serial-JTAG 的 D+ 和 D- 交换引脚。 (RO)
+\label{fielddesc:EFUSEUSBOTG11EXCHGPINS}\item [EFUSE\_USB\_OTG11\_EXCHG\_PINS] 表示是否使能 USB OTG11 的 D + 和 D - 交换引脚。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR0\_REG}{0x017C}\label{regdesc:EFUSERDREPEATDATAERR0REG}
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7\_ERR}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HUK\_GEN\_STATE\_ERR}}{5}{26}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_PHY\_SEL\_ERR}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6\_ERR}}{4}{21}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_PAD\_JTAG\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SOFT\_DIS\_JTAG\_ERR}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_JTAG\_SEL\_ENABLE\_ERR}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_TWAI\_ERR}}{1}{14}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS\_ERR}}{1}{13}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_FORCE\_DOWNLOAD\_ERR}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{11}{0}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2\_ERR}}{1}{10}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_JTAG\_ERR}}{1}{9}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1\_ERR}}{2}{7}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_DIS\_ERR}}{7}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDDISERR}\item [EFUSE\_RD\_DIS\_ERR] 表示 \hyperref[fielddesc:EFUSERDDIS]{EFUSE\_\-RD\_\-DIS} 的烧写错误。(RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-0\_\-1} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISUSBJTAGERR}\item [EFUSE\_DIS\_USB\_JTAG\_ERR] 表示 \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_\-DIS\_\-USB\_\-JTAG} 的烧写错误。(RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-2\_\-2} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISFORCEDOWNLOADERR}\item [EFUSE\_DIS\_FORCE\_DOWNLOAD\_ERR] 表示 \hyperref[fielddesc:EFUSEDISFORCEDOWNLOAD]{EFUSE\_\-DIS\_\-FORCE\_\-DOWNLOAD} 的烧写错误。(RO)
+\label{fielddesc:EFUSESPIDOWNLOADMSPIDISERR}\item [EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS\_ERR] 表示 \hyperref[fielddesc:EFUSESPIDOWNLOADMSPIDIS]{EFUSE\_\-SPI\_\-DOWNLOAD\_\-MSPI\_\-DIS} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISTWAIERR}\item [EFUSE\_DIS\_TWAI\_ERR] 表示 \hyperref[fielddesc:EFUSEDISTWAI]{EFUSE\_\-DIS\_\-TWAI} 的烧写错误。(RO)
+\label{fielddesc:EFUSEJTAGSELENABLEERR}\item [EFUSE\_JTAG\_SEL\_ENABLE\_ERR] 表示 \hyperref[fielddesc:EFUSEJTAGSELENABLE]{EFUSE\_\-JTAG\_\-SEL\_\-ENABLE} 的烧写错误。(RO)
+\label{fielddesc:EFUSESOFTDISJTAGERR}\item [EFUSE\_SOFT\_DIS\_JTAG\_ERR] 表示 \hyperref[fielddesc:EFUSESOFTDISJTAG]{EFUSE\_\-SOFT\_\-DIS\_\-JTAG} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISPADJTAGERR}\item [EFUSE\_DIS\_PAD\_JTAG\_ERR] 表示 \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_\-DIS\_\-PAD\_\-JTAG} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISDOWNLOADMANUALENCRYPTERR}\item [EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT\_ERR] 表示 \hyperref[fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT]{EFUSE\_\-DIS\_\-DOWNLOAD\_\-MANUAL\_\-ENCRYPT} 的烧写错误。(RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-3\_\-6} 的烧写错误。(RO)
+\label{fielddesc:EFUSEUSBPHYSELERR}\item [EFUSE\_USB\_PHY\_SEL\_ERR] 表示 \hyperref[fielddesc:EFUSEUSBPHYSEL]{EFUSE\_\-USB\_\-PHY\_\-SEL} 的烧写错误。(RO)
+
+\label{fielddesc:EFUSEHUKGENSTATEERR}\item [EFUSE\_HUK\_GEN\_STATE\_ERR] 表示 \hyperref[fielddesc:EFUSEHUKGENSTATE]{EFUSE\_\-HUK\_\-GEN\_\-STATE} 的烧写错误。(RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-7\_\-7} 的烧写错误。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR1\_REG}{0x0180}\label{regdesc:EFUSERDREPEATDATAERR1REG}
+\regfield{\rotatebox{20}{EFUSE\_KEY\_PURPOSE\_1\_ERR}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KEY\_PURPOSE\_0\_ERR}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2\_ERR}}{1}{23}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1\_ERR}}{1}{22}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SPI\_BOOT\_CRYPT\_CNT\_ERR}}{3}{18}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_WDT\_DELAY\_SEL\_ERR}}{1}{17}{{0}}%
+\regfield{\rotatebox{20}{(reserved)}}{1}{16}{0}%
+\regfield{\rotatebox{20}{EFUSE\_ECC\_FORCE\_CONST\_TIME\_ERR}}{1}{15}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256\_ERR}}{1}{14}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY\_ERR}}{1}{13}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_ERR}}{4}{9}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_ERR}}{4}{5}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_RND\_SWITCH\_CYCLE\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11\_ERR}}{1}{3}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10\_ERR}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-8\_\-10} 的烧写错误。(RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11\_ERR] 表示 \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-11\_\-11} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMRNDSWITCHCYCLEERR}\item [EFUSE\_KM\_RND\_SWITCH\_CYCLE\_ERR] 表示 \hyperref[fielddesc:EFUSEKMRNDSWITCHCYCLE]{EFUSE\_\-KM\_\-RND\_\-SWITCH\_\-CYCLE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEERR}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_ERR] 表示 \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYERR}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_ERR] 表示 \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFORCEDISABLESWINITKEYERR}\item [EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY\_ERR] 表示 \hyperref[fielddesc:EFUSEFORCEDISABLESWINITKEY]{EFUSE\_\-FORCE\_\-DISABLE\_\-SW\_\-INIT\_\-KEY} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMXTSKEYLENGTH256ERR}\item [EFUSE\_KM\_XTS\_KEY\_LENGTH\_256\_ERR] 表示 \hyperref[fielddesc:EFUSEKMXTSKEYLENGTH256]{EFUSE\_\-KM\_\-XTS\_\-KEY\_\-LENGTH\_\-256} 的烧写错误。(RO)
+\label{fielddesc:EFUSEECCFORCECONSTTIMEERR}\item [EFUSE\_ECC\_FORCE\_CONST\_TIME\_ERR] 表示 \hyperref[fielddesc:EFUSEECCFORCECONSTTIME]{EFUSE\_\-ECC\_\-FORCE\_\-CONST\_\-TIME} 的烧写错误。(RO)
+\label{fielddesc:EFUSEWDTDELAYSELERR}\item [EFUSE\_WDT\_DELAY\_SEL\_ERR] 表示 \hyperref[fielddesc:EFUSEWDTDELAYSEL]{EFUSE\_\-WDT\_\-DELAY\_\-SEL} 的烧写错误。(RO)
+\label{fielddesc:EFUSESPIBOOTCRYPTCNTERR}\item [EFUSE\_SPI\_BOOT\_CRYPT\_CNT\_ERR] 表示 \hyperref[fielddesc:EFUSESPIBOOTCRYPTCNT]{EFUSE\_\-SPI\_\-BOOT\_\-CRYPT\_\-CNT} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE0ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE0]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE0} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE1ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE1]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE1} 的烧写错误。(RO)
+
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR1\_REG}{0x0180}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE2ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE2]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE2} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE0ERR}\item [EFUSE\_KEY\_PURPOSE\_0\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE0]{EFUSE\_\-KEY\_\-PURPOSE\_\-0} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE1ERR}\item [EFUSE\_KEY\_PURPOSE\_1\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE1]{EFUSE\_\-KEY\_\-PURPOSE\_\-1} 的烧写错误。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR2\_REG}{0x0184}\label{regdesc:EFUSERDREPEATDATAERR2REG}
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_TPUW\_ERR}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE\_ERR}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_ECC\_EN\_ERR}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{24}{00}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H\_ERR}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H\_ERR}}{1}{22}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_EN\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_CLK\_ENABLE\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{18}{0}%
+\regfield{\rotatebox{15}{EFUSE\_SEC\_DPA\_LEVEL\_ERR}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_ERR}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_ERR}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_ERR}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_ERR}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEYPURPOSE2ERR}\item [EFUSE\_KEY\_PURPOSE\_2\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE2]{EFUSE\_\-KEY\_\-PURPOSE\_\-2} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE3ERR}\item [EFUSE\_KEY\_PURPOSE\_3\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE3]{EFUSE\_\-KEY\_\-PURPOSE\_\-3} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE4ERR}\item [EFUSE\_KEY\_PURPOSE\_4\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE4]{EFUSE\_\-KEY\_\-PURPOSE\_\-4} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE5ERR}\item [EFUSE\_KEY\_PURPOSE\_5\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE5]{EFUSE\_\-KEY\_\-PURPOSE\_\-5} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECDPALEVELERR}\item [EFUSE\_SEC\_DPA\_LEVEL\_ERR] 表示 \hyperref[fielddesc:EFUSESECDPALEVEL]{EFUSE\_\-SEC\_\-DPA\_\-LEVEL} 的烧写错误。(RO)
+\label{fielddesc:EFUSEXTSDPACLKENABLEERR}\item [EFUSE\_XTS\_DPA\_CLK\_ENABLE\_ERR] 表示 \hyperref[fielddesc:EFUSEXTSDPACLKENABLE]{EFUSE\_\-XTS\_\-DPA\_\-CLK\_\-ENABLE} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTENERR}\item [EFUSE\_SECURE\_BOOT\_EN\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTEN]{EFUSE\_\-SECURE\_\-BOOT\_\-EN} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKEERR}\item [EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE]{EFUSE\_\-SECURE\_\-BOOT\_\-AGGRESSIVE\_\-REVOKE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEHERR}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYHERR}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFLASHECCENERR}\item [EFUSE\_FLASH\_ECC\_EN\_ERR] 表示 \hyperref[fielddesc:EFUSEFLASHECCEN]{EFUSE\_\-FLASH\_\-ECC\_\-EN} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISUSBOTGDOWNLOADMODEERR}\item [EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE\_ERR] 表示 \hyperref[fielddesc:EFUSEDISUSBOTGDOWNLOADMODE]{EFUSE\_\-DIS\_\-USB\_\-OTG\_\-DOWNLOAD\_\-MODE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFLASHTPUWERR}\item [EFUSE\_FLASH\_TPUW\_ERR] 表示 \hyperref[fielddesc:EFUSEFLASHTPUW]{EFUSE\_\-FLASH\_\-TPUW} 的烧写错误。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR3\_REG}{0x0188}\label{regdesc:EFUSERDREPEATDATAERR3REG}
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_H\_ERR}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_H\_ERR}}{1}{30}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_H\_ERR}}{1}{29}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_1\_H\_ERR}}{1}{28}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_0\_H\_ERR}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HYS\_EN\_PAD\_ERR}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE\_ERR}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_VERSION\_ERR}}{16}{9}{{0x00}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_SEND\_RESUME\_ERR}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_UART\_PRINT\_CONTROL\_ERR}}{2}{6}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD\_ERR}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_LOCK\_KM\_KEY\_ERR}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT\_ERR}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DIRECT\_BOOT\_ERR}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MODE\_ERR}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDISDOWNLOADMODEERR}\item [EFUSE\_DIS\_DOWNLOAD\_MODE\_ERR] 表示 \hyperref[fielddesc:EFUSEDISDOWNLOADMODE]{EFUSE\_\-DIS\_\-DOWNLOAD\_\-MODE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISDIRECTBOOTERR}\item [EFUSE\_DIS\_DIRECT\_BOOT\_ERR] 表示 \hyperref[fielddesc:EFUSEDISDIRECTBOOT]{EFUSE\_\-DIS\_\-DIRECT\_\-BOOT} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGROMPRINTERR}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT\_ERR] 表示 \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT]{EFUSE\_\-DIS\_\-USB\_\-SERIAL\_\-JTAG\_\-ROM\_\-PRINT} 的烧写错误。(RO)
+\label{fielddesc:EFUSELOCKKMKEYERR}\item [EFUSE\_LOCK\_KM\_KEY\_ERR] 表示 \hyperref[fielddesc:EFUSELOCKKMKEY]{EFUSE\_\-LOCK\_\-KM\_\-KEY} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODEERR}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE\_ERR] 表示 \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE]{EFUSE\_\-DIS\_\-USB\_\-SERIAL\_\-JTAG\_\-DOWNLOAD\_\-MODE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEENABLESECURITYDOWNLOADERR}\item [EFUSE\_ENABLE\_SECURITY\_DOWNLOAD\_ERR] 表示 \hyperref[fielddesc:EFUSEENABLESECURITYDOWNLOAD]{EFUSE\_\-ENABLE\_\-SECURITY\_\-DOWNLOAD} 的烧写错误。(RO)
+\label{fielddesc:EFUSEUARTPRINTCONTROLERR}\item [EFUSE\_UART\_PRINT\_CONTROL\_ERR] 表示 \hyperref[fielddesc:EFUSEUARTPRINTCONTROL]{EFUSE\_\-UART\_\-PRINT\_\-CONTROL} 的烧写错误。(RO)
+\label{fielddesc:EFUSEFORCESENDRESUMEERR}\item [EFUSE\_FORCE\_SEND\_RESUME\_ERR] 表示 \hyperref[fielddesc:EFUSEFORCESENDRESUME]{EFUSE\_\-FORCE\_\-SEND\_\-RESUME} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREVERSIONERR}\item [EFUSE\_SECURE\_VERSION\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREVERSION]{EFUSE\_\-SECURE\_\-VERSION} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTDISABLEFASTWAKEERR}\item [EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE]{EFUSE\_\-SECURE\_\-BOOT\_\-DISABLE\_\-FAST\_\-WAKE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEHYSENPADERR}\item [EFUSE\_HYS\_EN\_PAD\_ERR] 表示 \hyperref[fielddesc:EFUSEHYSENPAD]{EFUSE\_\-HYS\_\-EN\_\-PAD} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE0HERR}\item [EFUSE\_KEY\_PURPOSE\_0\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE0H]{EFUSE\_\-KEY\_\-PURPOSE\_\-0\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE1HERR}\item [EFUSE\_KEY\_PURPOSE\_1\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE1H]{EFUSE\_\-KEY\_\-PURPOSE\_\-1\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE2HERR}\item [EFUSE\_KEY\_PURPOSE\_2\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE2H]{EFUSE\_\-KEY\_\-PURPOSE\_\-2\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE3HERR}\item [EFUSE\_KEY\_PURPOSE\_3\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE3H]{EFUSE\_\-KEY\_\-PURPOSE\_\-3\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE4HERR}\item [EFUSE\_KEY\_PURPOSE\_4\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE4H]{EFUSE\_\-KEY\_\-PURPOSE\_\-4\_\-H} 的烧写错误。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR4\_REG}{0x018C}\label{regdesc:EFUSERDREPEATDATAERR4REG}
+\regfield{\rotatebox{15}{(reserved)}}{8}{24}{00000000}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_MODE\_ERR}}{2}{22}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_SWD\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_WDT\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_SHA384\_EN\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HP\_PWR\_SRC\_SEL\_ERR}}{1}{18}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL\_ERR}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{12}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_ERR}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H\_ERR}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{5}{00}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_H\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{3}{0}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_EN\_ERR}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_0PXA\_TIEH\_SEL\_0\_ERR}}{2}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSE0PXATIEHSEL0ERR}\item [EFUSE\_0PXA\_TIEH\_SEL\_0\_ERR] 表示 \hyperref[fielddesc:EFUSE0PXATIEHSEL0]{EFUSE\_\-0PXA\_\-TIEH\_\-SEL\_\-0} 的烧写错误。(RO)
+\label{fielddesc:EFUSEPVTGLITCHENERR}\item [EFUSE\_PVT\_GLITCH\_EN\_ERR] 表示 \hyperref[fielddesc:EFUSEPVTGLITCHEN]{EFUSE\_\-PVT\_\-GLITCH\_\-EN} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKEYPURPOSE5HERR}\item [EFUSE\_KEY\_PURPOSE\_5\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKEYPURPOSE5H]{EFUSE\_\-KEY\_\-PURPOSE\_\-5\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEHERR}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H\_ERR] 表示 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} 的烧写错误。(RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEERR}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_ERR] 表示 \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} 的烧写错误。(RO)
+\label{fielddesc:EFUSEXTSDPAPSEUDOLEVELERR}\item [EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL\_ERR] 表示 \hyperref[fielddesc:EFUSEXTSDPAPSEUDOLEVEL]{EFUSE\_\-XTS\_\-DPA\_\-PSEUDO\_\-LEVEL} 的烧写错误。(RO)
+\label{fielddesc:EFUSEHPPWRSRCSELERR}\item [EFUSE\_HP\_PWR\_SRC\_SEL\_ERR] 表示 \hyperref[fielddesc:EFUSEHPPWRSRCSEL]{EFUSE\_\-HP\_\-PWR\_\-SRC\_\-SEL} 的烧写错误。(RO)
+\label{fielddesc:EFUSESECUREBOOTSHA384ENERR}\item [EFUSE\_SECURE\_BOOT\_SHA384\_EN\_ERR] 表示 \hyperref[fielddesc:EFUSESECUREBOOTSHA384EN]{EFUSE\_\-SECURE\_\-BOOT\_\-SHA384\_\-EN} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISWDTERR}\item [EFUSE\_DIS\_WDT\_ERR] 表示 \hyperref[fielddesc:EFUSEDISWDT]{EFUSE\_\-DIS\_\-WDT} 的烧写错误。(RO)
+\label{fielddesc:EFUSEDISSWDERR}\item [EFUSE\_DIS\_SWD\_ERR] 表示 \hyperref[fielddesc:EFUSEDISSWD]{EFUSE\_\-DIS\_\-SWD} 的烧写错误。(RO)
+\label{fielddesc:EFUSEPVTGLITCHMODEERR}\item [EFUSE\_PVT\_GLITCH\_MODE\_ERR] 表示 \hyperref[fielddesc:EFUSEPVTGLITCHMODE]{EFUSE\_\-PVT\_\-GLITCH\_\-MODE} 的烧写错误。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_ECDSA\_REG}{0x01B0}\label{regdesc:EFUSEECDSAREG}
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P384\_H\_BLK}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P384\_L\_BLK}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P256\_BLK}}{4}{20}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P192\_BLK}}{4}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P384\_H\_BLK}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P384\_L\_BLK}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P256\_BLK}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P192\_BLK}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSECFGECDSAP192BLK}\item [EFUSE\_CFG\_ECDSA\_P192\_BLK] 配置用于 ECDSA P192 密钥输出的 block 的编号。(R/W)
+\label{fielddesc:EFUSECFGECDSAP256BLK}\item [EFUSE\_CFG\_ECDSA\_P256\_BLK] 配置用于 ECDSA P256 密钥输出的 block 的编号。(R/W)
+\label{fielddesc:EFUSECFGECDSAP384LBLK}\item [EFUSE\_CFG\_ECDSA\_P384\_L\_BLK] 配置用于 ECDSA P384 密钥低部分输出的 block 的编号。(R/W)
+\label{fielddesc:EFUSECFGECDSAP384HBLK}\item [EFUSE\_CFG\_ECDSA\_P384\_H\_BLK] 配置用于 ECDSA P384 密钥高部分输出的 block 的编号。(R/W)
+\label{fielddesc:EFUSECURECDSAP192BLK}\item [EFUSE\_CUR\_ECDSA\_P192\_BLK] 表示用于 ECDSA P192 密钥输出的 block。(RO)
+\label{fielddesc:EFUSECURECDSAP256BLK}\item [EFUSE\_CUR\_ECDSA\_P256\_BLK] 表示用于 ECDSA P256 密钥输出的 block。(RO)
+\label{fielddesc:EFUSECURECDSAP384LBLK}\item [EFUSE\_CUR\_ECDSA\_P384\_L\_BLK] 表示用于 ECDSA P384 密钥低部分输出的 block。(RO)
+\label{fielddesc:EFUSECURECDSAP384HBLK}\item [EFUSE\_CUR\_ECDSA\_P384\_H\_BLK] 表示用于 ECDSA P384 密钥高部分输出的 block。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR0\_REG}{0x01C0}\label{regdesc:EFUSERDRSDATAERR0REG}
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY4\_DATA\_FAIL}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY4\_DATA\_ERR\_NUM}}{3}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY3\_DATA\_FAIL}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY3\_DATA\_ERR\_NUM}}{3}{24}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY2\_DATA\_FAIL}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY2\_DATA\_ERR\_NUM}}{3}{20}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY1\_DATA\_FAIL}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY1\_DATA\_ERR\_NUM}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY0\_DATA\_FAIL}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY0\_DATA\_ERR\_NUM}}{3}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_USR\_DATA\_FAIL}}{1}{11}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_USR\_DATA\_ERR\_NUM}}{3}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART1\_DATA\_FAIL}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART1\_DATA\_ERR\_NUM}}{3}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_MAC\_SYS\_FAIL}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_MAC\_SYS\_ERR\_NUM}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDMACSYSERRNUM}\item [EFUSE\_RD\_MAC\_SYS\_ERR\_NUM] 表示错误字节数。(RO)
+\label{fielddesc:EFUSERDMACSYSFAIL}\item [EFUSE\_RD\_MAC\_SYS\_FAIL] 表示 MAC\_SYS 的数据是否烧写失败。 (RO)\\0: 无烧写错误，MAC\_SYS 的数据是可靠的\\1: 用户数据烧写失败，错误字节数超过 6
+\label{fielddesc:EFUSERDSYSPART1DATAERRNUM}\item [EFUSE\_RD\_SYS\_PART1\_DATA\_ERR\_NUM] 表示错误字节数。(RO)
+\label{fielddesc:EFUSERDSYSPART1DATAFAIL}\item [EFUSE\_RD\_SYS\_PART1\_DATA\_FAIL] 表示第 1 部分的系统数据是否烧写失败。 (RO)\\0: 无烧写错误，第 1 部分的系统数据是可靠的\\1: 用户数据烧写失败，错误字节数超过 6
+\label{fielddesc:EFUSERDUSRDATAERRNUM}\item [EFUSE\_RD\_USR\_DATA\_ERR\_NUM] 表示错误字节数。(RO)
+\label{fielddesc:EFUSERDUSRDATAFAIL}\item [EFUSE\_RD\_USR\_DATA\_FAIL] 表示用户数据烧写是否失败。 (RO)\\0: 无烧写错误，用户数据是可靠的\\1: 用户数据烧写失败，错误字节数超过 6
+\label{fielddesc:EFUSERDKEY0DATAERRNUM}\item [EFUSE\_RD\_KEY0\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key0\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDKEY0DATAFAIL}\item [EFUSE\_RD\_KEY0\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key0\_data 的数据是可靠的\\1: 表示 rd\_key0\_data 烧写失败，错误字节数超过 6。
+\label{fielddesc:EFUSERDKEY1DATAERRNUM}\item [EFUSE\_RD\_KEY1\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key1\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDKEY1DATAFAIL}\item [EFUSE\_RD\_KEY1\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key1\_data 的数据是可靠的\\1: 表示 rd\_key1\_data 烧写失败，错误字节数超过 6。
+\label{fielddesc:EFUSERDKEY2DATAERRNUM}\item [EFUSE\_RD\_KEY2\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key2\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDKEY2DATAFAIL}\item [EFUSE\_RD\_KEY2\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key2\_data 的数据是可靠的\\1: 表示 rd\_key2\_data 烧写失败，错误字节数超过 6。
+
+\item [见下页...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR0\_REG}{0x01C0}
+\begin{regdesc}\begin{reglist}
+\item [接上页...]
+
+\label{fielddesc:EFUSERDKEY3DATAERRNUM}\item [EFUSE\_RD\_KEY3\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key3\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDKEY3DATAFAIL}\item [EFUSE\_RD\_KEY3\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key3\_data 的数据是可靠的\\1: 表示 rd\_key3\_data 烧写失败，错误字节数超过 6。
+\label{fielddesc:EFUSERDKEY4DATAERRNUM}\item [EFUSE\_RD\_KEY4\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key4\_data 中的错误字节数。
+\label{fielddesc:EFUSERDKEY4DATAFAIL}\item [EFUSE\_RD\_KEY4\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key4\_data 的数据是可靠的\\1: 表示 rd\_key4\_data 烧写失败，错误字节数超过 6。
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR1\_REG}{0x01C4}\label{regdesc:EFUSERDRSDATAERR1REG}
+\regfield{\rotatebox{15}{(reserved)}}{24}{8}{000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART2\_DATA\_FAIL}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART2\_DATA\_ERR\_NUM}}{3}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY5\_DATA\_FAIL}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY5\_DATA\_ERR\_NUM}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDKEY5DATAERRNUM}\item [EFUSE\_RD\_KEY5\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_key5\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDKEY5DATAFAIL}\item [EFUSE\_RD\_KEY5\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_key5\_data 的数据是可靠的\\1: 表示 rd\_key5\_data 烧写失败，错误字节数超过 6。
+\label{fielddesc:EFUSERDSYSPART2DATAERRNUM}\item [EFUSE\_RD\_SYS\_PART2\_DATA\_ERR\_NUM] 表示错误字节数。(RO)\\该信号的值表示 rd\_sys\_part2\_data 中的错误字节数。(RO)
+\label{fielddesc:EFUSERDSYSPART2DATAFAIL}\item [EFUSE\_RD\_SYS\_PART2\_DATA\_FAIL] 表示寄存器错误状态。(RO)\\0: 表示无错误，rd\_sys\_part2\_data 的数据是可靠的\\1: 表示 rd\_sys\_part2\_data 烧写失败，错误字节数超过 6。
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CLK\_REG}{0x01C8}\label{regdesc:EFUSECLKREG}
+\regfield{\rotatebox{15}{(reserved)}}{15}{17}{000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_CLK\_EN}}{1}{16}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{13}{3}{0000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_FORCE\_PU}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_CLK\_FORCE\_ON}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_FORCE\_PD}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMEMFORCEPD}\item [EFUSE\_MEM\_FORCE\_PD] 配置是否强制 eFuse SRAM 下电。 (R/W)
+\label{fielddesc:EFUSEMEMCLKFORCEON}\item [EFUSE\_MEM\_CLK\_FORCE\_ON] 配置是否强制激活 eFuse SRAM 时钟信号。 (R/W)
+\label{fielddesc:EFUSEMEMFORCEPU}\item [EFUSE\_MEM\_FORCE\_PU] 配置是否强制 eFuse SRAM 上电。 (R/W)
+\label{fielddesc:EFUSECLKEN}\item [EFUSE\_CLK\_EN] 配置是否强制使能 eFuse 寄存器配置时钟信号。 (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CONF\_REG}{0x01CC}\label{regdesc:EFUSECONFREG}
+\regfield{\rotatebox{15}{(reserved)}}{16}{16}{0000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_OP\_CODE}}{16}{0}{{0x00}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEOPCODE}\item [EFUSE\_OP\_CODE] 配置操作指令类型。 (R/W)\\0x5A5A：烧写操作指令\\0x5AA5：读操作指令
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_STATUS\_REG}{0x01D0}\label{regdesc:EFUSESTATUSREG}
+\regfield{\rotatebox{15}{(reserved)}}{12}{20}{000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_BLK0\_VALID\_BIT\_CNT}}{10}{10}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{6}{4}{000000}%
+\regfield{\rotatebox{15}{EFUSE\_STATE}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESTATE}\item [EFUSE\_STATE] 表示 eFuse 状态机的状态。 (RO)
+\label{fielddesc:EFUSEBLK0VALIDBITCNT}\item [EFUSE\_BLK0\_VALID\_BIT\_CNT] 表示 block 中有效位的数量。 (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CMD\_REG}{0x01D4}\label{regdesc:EFUSECMDREG}
+\regfield{\rotatebox{15}{(reserved)}}{26}{6}{00000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_BLK\_NUM}}{4}{2}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_CMD}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_CMD}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADCMD}\item [EFUSE\_READ\_CMD] 配置是否发送读指令。 (R/W/SC)
+\label{fielddesc:EFUSEPGMCMD}\item [EFUSE\_PGM\_CMD] 配置是否发送烧写指令。 (R/W/SC)
+\label{fielddesc:EFUSEBLKNUM}\item [EFUSE\_BLK\_NUM] 配置待烧写的 block 编号。值 0~10 分别对应 BLOCK0~BLOCK10。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_RAW\_REG}{0x01D8}\label{regdesc:EFUSEINTRAWREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_RAW}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_RAW}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTRAW}\item [EFUSE\_READ\_DONE\_INT\_RAW] read\_done 中断的原始中断状态。(R/SS/WTC)
+\label{fielddesc:EFUSEPGMDONEINTRAW}\item [EFUSE\_PGM\_DONE\_INT\_RAW] pgm\_done 中断的原始中断状态。(R/SS/WTC)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_ST\_REG}{0x01DC}\label{regdesc:EFUSEINTSTREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_ST}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_ST}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTST}\item [EFUSE\_READ\_DONE\_INT\_ST] read\_done 中断的屏蔽中断状态。(RO)
+\label{fielddesc:EFUSEPGMDONEINTST}\item [EFUSE\_PGM\_DONE\_INT\_ST] pgm\_done 中断的屏蔽中断状态。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_ENA\_REG}{0x01E0}\label{regdesc:EFUSEINTENAREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_ENA}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_ENA}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTENA}\item [EFUSE\_READ\_DONE\_INT\_ENA] 写 1 使能 read\_done 中断。(R/W)
+\label{fielddesc:EFUSEPGMDONEINTENA}\item [EFUSE\_PGM\_DONE\_INT\_ENA] 写 1 使能 pgm\_done 中断。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_CLR\_REG}{0x01E4}\label{regdesc:EFUSEINTCLRREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_CLR}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_CLR}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTCLR}\item [EFUSE\_READ\_DONE\_INT\_CLR] 写 1 清除 read\_done 中断。(WT)
+\label{fielddesc:EFUSEPGMDONEINTCLR}\item [EFUSE\_PGM\_DONE\_INT\_CLR] 写 1 清除 pgm\_done 中断。(WT)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_DAC\_CONF\_REG}{0x01E8}\label{regdesc:EFUSEDACCONFREG}
+\regfield{\rotatebox{15}{(reserved)}}{14}{18}{00000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_OE\_CLR}}{1}{17}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DAC\_NUM}}{8}{9}{{255}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DAC\_CLK\_DIV}}{8}{0}{{23}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDACCLKDIV}\item [EFUSE\_DAC\_CLK\_DIV] 配置烧写电压上升时钟的分频系数。(R/W)
+\label{fielddesc:EFUSEDACNUM}\item [EFUSE\_DAC\_NUM] 配置烧写电压的上升周期。(R/W)
+\label{fielddesc:EFUSEOECLR}\item [EFUSE\_OE\_CLR] 配置是否降低烧写电压的电源供应。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_TIM\_CONF\_REG}{0x01EC}\label{regdesc:EFUSERDTIMCONFREG}
+\regfield{\rotatebox{15}{EFUSE\_READ\_INIT\_NUM}}{8}{24}{{0xf}}%
+\regfield{\rotatebox{15}{EFUSE\_TSUR\_A}}{8}{16}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_TRD}}{8}{8}{{0x2}}%
+\regfield{\rotatebox{15}{EFUSE\_THR\_A}}{8}{0}{{0x1}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSETHRA}\item [EFUSE\_THR\_A] 配置读保持时间。(R/W)
+\label{fielddesc:EFUSETRD}\item [EFUSE\_TRD] 配置读时间。(R/W)
+\label{fielddesc:EFUSETSURA}\item [EFUSE\_TSUR\_A] 配置读建立时间。(R/W)
+\label{fielddesc:EFUSEREADINITNUM}\item [EFUSE\_READ\_INIT\_NUM] 配置读取 eFuse 存储器的等待时间。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF1\_REG}{0x01F0}\label{regdesc:EFUSEWRTIMCONF1REG}
+\regfield{\rotatebox{15}{EFUSE\_THP\_A}}{8}{24}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_PWR\_ON\_NUM}}{16}{8}{{0x2667}}%
+\regfield{\rotatebox{15}{EFUSE\_TSUP\_A}}{8}{0}{{0x1}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSETSUPA}\item [EFUSE\_TSUP\_A] 配置烧写建立时间。(R/W)
+\label{fielddesc:EFUSEPWRONNUM}\item [EFUSE\_PWR\_ON\_NUM] 配置 VDDQ 的上电时间。(R/W)
+\label{fielddesc:EFUSETHPA}\item [EFUSE\_THP\_A] 配置烧写保持时间。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF2\_REG}{0x01F4}\label{regdesc:EFUSEWRTIMCONF2REG}
+\regfield{\rotatebox{15}{EFUSE\_TPGM}}{16}{16}{{0xa0}}%
+\regfield{\rotatebox{15}{EFUSE\_PWR\_OFF\_NUM}}{16}{0}{{0x140}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPWROFFNUM}\item [EFUSE\_PWR\_OFF\_NUM] 配置 VDDQ 的断电时间。(R/W)
+\label{fielddesc:EFUSETPGM}\item [EFUSE\_TPGM] 配置有效烧写时间。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF0\_RS\_BYPASS\_REG}{0x01F8}\label{regdesc:EFUSEWRTIMCONF0RSBYPASSREG}
+\regfield{\rotatebox{15}{(reserved)}}{11}{21}{00000000000}%
+\regfield{\rotatebox{15}{EFUSE\_TPGM\_INACTIVE}}{8}{13}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_UPDATE}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_BYPASS\_RS\_BLK\_NUM}}{11}{1}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_BYPASS\_RS\_CORRECTION}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEBYPASSRSCORRECTION}\item [EFUSE\_BYPASS\_RS\_CORRECTION] 配置是否绕过 Reed-Solomon 纠错步骤。(R/W)
+\label{fielddesc:EFUSEBYPASSRSBLKNUM}\item [EFUSE\_BYPASS\_RS\_BLK\_NUM] 配置二次烧写操作的块号。(R/W)
+\label{fielddesc:EFUSEUPDATE}\item [EFUSE\_UPDATE] 写 1 更新多位寄存器信号。(WT)
+\label{fielddesc:EFUSETPGMINACTIVE}\item [EFUSE\_TPGM\_INACTIVE] 配置无效烧写时间。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_DATE\_REG}{0x01FC}\label{regdesc:EFUSEDATEREG}
+\regfield{\rotatebox{15}{(reserved)}}{4}{28}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_DATE}}{28}{0}{{0x2502190}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDATE}\item [EFUSE\_DATE] 配置 eFuse 版本。(R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_WR\_DIS\_REG}{0x0800}\label{regdesc:EFUSEAPB2OTPWRDISREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_WR\_DIS}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0WRDIS}\item [EFUSE\_APB2OTP\_BLOCK0\_WR\_DIS] 表示 OTP block0 写禁用数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP1\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0800+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP1WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP1\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP1WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP1\_W\regindex{n}] 表示 OTP block0 backup1 word\regindex{n} 数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP2\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0814+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP2WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP2\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP2WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP2\_W\regindex{n}] 表示 OTP block0 backup2 word\regindex{n} 数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP3\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0828+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP3WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP3\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP3WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP3\_W\regindex{n}] 表示 OTP block0 backup3 word\regindex{n} 数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP4\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x083C+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP4WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP4\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP4WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP4\_W\regindex{n}] 表示 OTP block0 backup4 word\regindex{n} 数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK1\_W\regindex{n}\_REG (\regindex{n}: 1-9)}{0x0850+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK1WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK1\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK1WN}\item [EFUSE\_APB2OTP\_BLOCK1\_W\regindex{n}] 表示 OTP block1 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK2\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0874+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK2WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK2\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK2WN}\item [EFUSE\_APB2OTP\_BLOCK2\_W\regindex{n}] 表示 OTP block2 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK3\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08A0+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK3WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK3\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK3WN}\item [EFUSE\_APB2OTP\_BLOCK3\_W\regindex{n}] 表示 OTP block3 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK4\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08CC+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK4WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK4\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK4WN}\item [EFUSE\_APB2OTP\_BLOCK4\_W\regindex{n}] 表示 OTP block4 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK5\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08F8+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK5WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK5\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK5WN}\item [EFUSE\_APB2OTP\_BLOCK5\_W\regindex{n}] 表示 OTP block5 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK6\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0924+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK6WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK6\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK6WN}\item [EFUSE\_APB2OTP\_BLOCK6\_W\regindex{n}] 表示 OTP block6 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK7\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0950+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK7WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK7\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK7WN}\item [EFUSE\_APB2OTP\_BLOCK7\_W\regindex{n}] 表示 OTP block7 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK8\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x097C+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK8WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK8\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK8WN}\item [EFUSE\_APB2OTP\_BLOCK8\_W\regindex{n}] 表示 OTP block8 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK9\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x09A8+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK9WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK9\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK9WN}\item [EFUSE\_APB2OTP\_BLOCK9\_W\regindex{n}] 表示 OTP block9 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK10\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x09D4+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK10WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK10\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK10WN}\item [EFUSE\_APB2OTP\_BLOCK10\_W\regindex{n}] 表示 OTP block10 的第 \regindex{n} 个 32 位字数据。(RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_EN\_REG}{0x0A08}\label{regdesc:EFUSEAPB2OTPENREG}
+\regfield{\rotatebox{15}{(reserved)}}{31}{1}{0000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_APB2OTP\_EN}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPAPB2OTPEN}\item [EFUSE\_APB2OTP\_APB2OTP\_EN] 配置是否启用 APB2OTP 模式。 (R/W)
+\end{reglist}\end{regdesc}
+\end{register}

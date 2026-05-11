@@ -1,0 +1,1026 @@
+\begin{register}{H}{EFUSE\_PGM\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x0000+0x4*\regindex{n}}\label{regdesc:EFUSEPGMDATANREG}
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DATA\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPGMDATAN}\item [EFUSE\_PGM\_DATA\_\regindex{n}] Configures the \regindex{n}th 32-bit data to be programmed. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_PGM\_CHECK\_VALUE\regindex{n}\_REG (\regindex{n}: 0-2)}{0x0020+0x4*\regindex{n}}\label{regdesc:EFUSEPGMCHECKVALUENREG}
+\regfield{\rotatebox{15}{EFUSE\_PGM\_RS\_DATA\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPGMRSDATAN}\item [EFUSE\_PGM\_RS\_DATA\_\regindex{n}] Configures the \regindex{n}th RS code to be programmed. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_WR\_DIS\_REG}{0x002C}\label{regdesc:EFUSERDWRDISREG}
+\regfield{\rotatebox{15}{EFUSE\_WR\_DIS}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEWRDIS}\item [EFUSE\_WR\_DIS] Represents whether programming of eFuse memory bits is disabled. For mapping between the bits of this field and the eFuse memory bits, please refer to Table \ref{tab:efuse-block0-para} and Table \ref{tab:efuse-block-1-10-para}. (RO)\\1: Disabled\\0: Enabled
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA0\_REG}{0x0030}\label{regdesc:EFUSERDREPEATDATA0REG}
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HUK\_GEN\_STATE}}{5}{26}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_PHY\_SEL}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6}}{4}{21}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_PAD\_JTAG}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SOFT\_DIS\_JTAG}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_JTAG\_SEL\_ENABLE}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_TWAI}}{1}{14}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS}}{1}{13}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_FORCE\_DOWNLOAD}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{11}{0}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2}}{1}{10}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_JTAG}}{1}{9}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1}}{2}{7}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_DIS}}{7}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDDIS}\item [EFUSE\_RD\_DIS] Represents whether reading of individual eFuse block (block4~block10) is disabled or enabled. (RO)\\1: disabled\\0: enabled
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1] Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails. (RO)\\0 and 0xFFF: this feature is disabled
+\label{fielddesc:EFUSEDISUSBJTAG}\item [EFUSE\_DIS\_USB\_JTAG] Represents whether the USB to JTAG switch in the USB device module is disabled. (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2] Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails. (RO)\\0 and 0xFFF: this feature is disabled
+\label{fielddesc:EFUSEDISFORCEDOWNLOAD}\item [EFUSE\_DIS\_FORCE\_DOWNLOAD] Represents whether the function that forces chip into download mode is disabled. (RO)
+\label{fielddesc:EFUSESPIDOWNLOADMSPIDIS}\item [EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS] Represents whether accessing MSPI flash/MSPI RAM by SYS AXI matrix during boot\_mode\_download is disabled. (RO)
+\label{fielddesc:EFUSEDISTWAI}\item [EFUSE\_DIS\_TWAI] Represents whether the TWAI function is disabled. (RO)
+\label{fielddesc:EFUSEJTAGSELENABLE}\item [EFUSE\_JTAG\_SEL\_ENABLE] Represents whether selection between usb\_to\_jtag and pad\_to\_jtag through strapping GPIO25 is enabled when both EFUSE\_DIS\_PAD\_JTAG and EFUSE\_DIS\_USB\_JTAG are equal to 0. (RO)
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA0\_REG}{0x0030}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+
+\label{fielddesc:EFUSESOFTDISJTAG}\item [EFUSE\_SOFT\_DIS\_JTAG] Represents whether JTAG is disabled in the soft way or not. JTAG can be restarted in the HMAC module. (RO)\\
+Odd count of bits with a value of 1: Disabled\\
+Even count of bits with a value of 1: Enabled.
+\label{fielddesc:EFUSEDISPADJTAG}\item [EFUSE\_DIS\_PAD\_JTAG] Represents whether JTAG is disabled in the hard way (permanently). (RO)
+\label{fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT}\item [EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT] Represents whether the flash manual encrypt function is disabled (except in SPI boot mode). (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6] Represents the starting flash sector (flash sector size is 0x1000) of the recovery bootloader used by the ROM bootloader if the primary bootloader fails. (RO)\\0 and 0xFFF: this feature is disabled
+\label{fielddesc:EFUSEUSBPHYSEL}\item [EFUSE\_USB\_PHY\_SEL] Configures the corresponding relationship between the two PHYs and the USB interfaces. (RO)\\
+0: The PHY on GPIO24/GPIO25 is connected to usb\_device, while the PHY on GPIO26/GPIO27 is connected to usb\_otg11\\
+1: the PHY on GPIO26/GPIO27 is connected to usb\_device, while the PHY on GPIO24/GPIO25 is connected to usb\_otg11
+\label{fielddesc:EFUSEHUKGENSTATE}\item [EFUSE\_HUK\_GEN\_STATE] Represents the validation status of the HUK generation mode. (RO)\\Odd count of bits with a value of 1: invalid\\Even count of bits with a value of 1: valid
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7] Represents the starting flash sector of the recovery bootloader (flash sector size is 0x1000). When the primary bootloader fails, the ROM bootloader loads and executes the recovery bootloader from this sector. (RO)\\0 and 0xFFF: The recovery bootloader feature is disabled
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA1\_REG}{0x0034}\label{regdesc:EFUSERDREPEATDATA1REG}
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_1}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_0}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1}}{1}{22}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SPI\_BOOT\_CRYPT\_CNT}}{3}{18}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_WDT\_DELAY\_SEL}}{1}{17}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{16}{0}%
+\regfield{\rotatebox{15}{EFUSE\_ECC\_FORCE\_CONST\_TIME}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256}}{1}{14}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY}}{1}{13}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY}}{4}{9}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE}}{4}{5}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_RND\_SWITCH\_CYCLE}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10] Represents the starting flash sector of the recovery bootloader (flash sector size is 0x1000). When the primary bootloader fails, the ROM bootloader loads and executes the recovery bootloader from this sector. (RO)\\0 and 0xFFF: The recovery bootloader feature is disabled
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11] Represents the starting flash sector of the recovery bootloader (flash sector size is 0x1000). When the primary bootloader fails, the ROM bootloader loads and executes the recovery bootloader from this sector. (RO)\\0 and 0xFFF: The recovery bootloader feature is disabled
+\label{fielddesc:EFUSEKMRNDSWITCHCYCLE}\item [EFUSE\_KM\_RND\_SWITCH\_CYCLE] Represents the key manager random number switch cycle. (RO)\\0: control by register\\1: 8 km clk cycles\\2: 16 km cycles\\3: 32 km cycles
+
+\label{fielddesc:EFUSEKMDEPLOYONLYONCE}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE] EFUSE\_KM\_DEPLOY\_ONLY\_ONCE and EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H together form one field: {EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H, EFUSE\_KM\_DEPLOY\_ONLY\_ONCE[3:0]}. Represents whether each corresponding key can only be deployed once. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA1\_REG}{0x0034}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEY}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY] EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY and EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H together form one field: {EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H, EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]}. Represents whether each corresponding key must come from key manager. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram 
+\label{fielddesc:EFUSEFORCEDISABLESWINITKEY}\item [EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY] Represents whether software written init key is disabled, and efuse\_init\_key is forced to be used. (RO)
+\label{fielddesc:EFUSEKMXTSKEYLENGTH256}\item [EFUSE\_KM\_XTS\_KEY\_LENGTH\_256] Represents whether flash encryption uses XTS-512 key. Otherwise, the key manager will use the XTS-256 key. (RO)
+
+\label{fielddesc:EFUSEECCFORCECONSTTIME}\item [EFUSE\_ECC\_FORCE\_CONST\_TIME] Represents whether ECC const-time mode is permanently turned on. (RO)
+\label{fielddesc:EFUSEWDTDELAYSEL}\item [EFUSE\_WDT\_DELAY\_SEL] Represents the LP WDT timeout threshold selection. The relationship is
+\[
+    \text{startup\_timeout} = \text{initial\_timeout\_value} \times 2^{(\text{EFUSE\_WDT\_DELAY\_SEL} + 1)}
+    \]
+(RO)
+\label{fielddesc:EFUSESPIBOOTCRYPTCNT}\item [EFUSE\_SPI\_BOOT\_CRYPT\_CNT] Represents whether SPI boot encrypt/decrypt is enabled. (RO)\\Odd number of 1: enabled\\Even number of 1: disabled
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE0}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0] Represents whether revoking the first secure boot key is enabled. (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE1}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1] Represents whether revoking the second secure boot key is enabled. (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE2}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2] Represents whether revoking the third secure boot key is enabled. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0}\item [EFUSE\_KEY\_PURPOSE\_0] Represents the purpose of Key0. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE1}\item [EFUSE\_KEY\_PURPOSE\_1] Represents the purpose of Key1. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA2\_REG}{0x0038}\label{regdesc:EFUSERDREPEATDATA2REG}
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_TPUW}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_ECC\_EN}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{24}{00}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H}}{1}{22}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_EN}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_CLK\_ENABLE}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{18}{0}%
+\regfield{\rotatebox{15}{EFUSE\_SEC\_DPA\_LEVEL}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEYPURPOSE2}\item [EFUSE\_KEY\_PURPOSE\_2] Represents the purpose of Key2. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE3}\item [EFUSE\_KEY\_PURPOSE\_3] Represents the purpose of Key3. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE4}\item [EFUSE\_KEY\_PURPOSE\_4] Represents the purpose of Key4. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE5}\item [EFUSE\_KEY\_PURPOSE\_5] Represents the purpose of Key5. For more information, see Table \ref{tab:efuse-key-purpose}. (RO)
+\label{fielddesc:EFUSESECDPALEVEL}\item [EFUSE\_SEC\_DPA\_LEVEL] Represents the DPA security level. This field effectively sets the protection level by configuring the clock random divide mode. (RO)
+\label{fielddesc:EFUSEXTSDPACLKENABLE}\item [EFUSE\_XTS\_DPA\_CLK\_ENABLE] Represents whether the XTS clock anti-DPA attack function is enabled. (RO)
+\label{fielddesc:EFUSESECUREBOOTEN}\item [EFUSE\_SECURE\_BOOT\_EN] Represents whether secure boot is enabled. (RO)
+\label{fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE}\item [EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE] Represents whether revoking aggressive secure boot is enabled. (RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEH}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H] \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE} and \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H} together form one field: EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H \& EFUSE\_KM\_DEPLOY\_ONLY\_ONCE[3:0]. Represents whether each corresponding key can only be deployed once. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA2\_REG}{0x0038}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H] \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY} and \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H} together form one field: EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H \& EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY[3:0]. Represents whether each corresponding key must come from key manager. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+\label{fielddesc:EFUSEFLASHECCEN}\item [EFUSE\_FLASH\_ECC\_EN] Represents whether ECC for flash boot is enabled. (RO)
+\label{fielddesc:EFUSEDISUSBOTGDOWNLOADMODE}\item [EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE] Represents whether download via USB-OTG is disabled. (RO)
+\label{fielddesc:EFUSEFLASHTPUW}\item [EFUSE\_FLASH\_TPUW] Represents the flash waiting time after power-up, in unit of ms. (RO)\\When the value is less than 15, the waiting time is the configurable value.\\Otherwise, the waiting time is 30.
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA3\_REG}{0x003C}\label{regdesc:EFUSERDREPEATDATA3REG}
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_H}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_H}}{1}{30}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_H}}{1}{29}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_1\_H}}{1}{28}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_0\_H}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HYS\_EN\_PAD}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_VERSION}}{16}{9}{{0x00}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_SEND\_RESUME}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_UART\_PRINT\_CONTROL}}{2}{6}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_LOCK\_KM\_KEY}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DIRECT\_BOOT}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MODE}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDISDOWNLOADMODE}\item [EFUSE\_DIS\_DOWNLOAD\_MODE] Represents whether all Download modes are disabled. (RO)
+\label{fielddesc:EFUSEDISDIRECTBOOT}\item [EFUSE\_DIS\_DIRECT\_BOOT] Represents whether direct boot mode is disabled. (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT] Represents whether USB-Serial-JTAG print during ROM boot is disabled. (RO)
+\label{fielddesc:EFUSELOCKKMKEY}\item [EFUSE\_LOCK\_KM\_KEY] Represents whether the key manager key is locked after deploy. (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE] Represents whether the USB-Serial-JTAG download function is disabled. (RO)
+\label{fielddesc:EFUSEENABLESECURITYDOWNLOAD}\item [EFUSE\_ENABLE\_SECURITY\_DOWNLOAD] Represents whether security download mode is enabled. (RO)
+\label{fielddesc:EFUSEUARTPRINTCONTROL}\item [EFUSE\_UART\_PRINT\_CONTROL] Represents the type of UART printing. (RO)\\00: force enable printing\\01: enable printing when GPIO8 is reset at low level\\10: enable printing when GPIO8 is reset at high level\\11: force disable printing
+\label{fielddesc:EFUSEFORCESENDRESUME}\item [EFUSE\_FORCE\_SEND\_RESUME] Represents whether ROM code is forced to send a resume command during SPI boot. (RO)
+\label{fielddesc:EFUSESECUREVERSION}\item [EFUSE\_SECURE\_VERSION] Represents the secure version used by the ESP-IDF anti-rollback feature. (RO)
+\label{fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE}\item [EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE] When secure boot is enabled, represents whether FAST VERIFY ON WAKE is disabled. (RO)\\1: disabled\\0: enabled
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA3\_REG}{0x003C}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+
+\label{fielddesc:EFUSEHYSENPAD}\item [EFUSE\_HYS\_EN\_PAD] Represents whether hysteresis function of PAD0~27 is enabled. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0H}\item [EFUSE\_KEY\_PURPOSE\_0\_H] Represents the purpose of Key0. The 5th bit. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE1H}\item [EFUSE\_KEY\_PURPOSE\_1\_H] Represents the purpose of Key1. The 5th bit. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE2H}\item [EFUSE\_KEY\_PURPOSE\_2\_H] Represents the purpose of Key2. The 5th bit. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE3H}\item [EFUSE\_KEY\_PURPOSE\_3\_H] Represents the purpose of Key3. The 5th bit. (RO)
+\label{fielddesc:EFUSEKEYPURPOSE4H}\item [EFUSE\_KEY\_PURPOSE\_4\_H] Represents the purpose of Key4. The 5th bit. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA4\_REG}{0x0040}\label{regdesc:EFUSERDREPEATDATA4REG}
+\regfield{\rotatebox{15}{(reserved)}}{8}{24}{00000000}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_MODE}}{2}{22}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_SWD}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_WDT}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_SHA384\_EN}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HP\_PWR\_SRC\_SEL}}{1}{18}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{12}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{5}{00}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_H}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{3}{0}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_EN}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_0PXA\_TIEH\_SEL\_0}}{2}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSE0PXATIEHSEL0}\item [EFUSE\_0PXA\_TIEH\_SEL\_0] Represents the control selection for the LDO VO0 pull-high (tieh) source. (RO)\\0: tied high\\1: SDMMC1 peripheral\\2: register field\\3: SDMMC0 peripheral
+\label{fielddesc:EFUSEPVTGLITCHEN}\item [EFUSE\_PVT\_GLITCH\_EN] Represents whether PVT power glitch monitor function is enabled. (RO)\\1: Enable\\0: Disable
+\label{fielddesc:EFUSEKEYPURPOSE5H}\item [EFUSE\_KEY\_PURPOSE\_5\_H] Represents the purpose of Key5. The 5th bit. (RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEH}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H] \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} and \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} together form one field: EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H \& EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]. Represents whether each corresponding key's deploy mode of new value deployment is disabled. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA4\_REG}{0x0040}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODE}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE] \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} and \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} together form one field: EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H \& EFUSE\_KM\_DISABLE\_DEPLOY\_MODE[3:0]. Represents whether each corresponding key's deploy mode of new value deployment is disabled. (RO)\\1: true\\0: false\\bit 0: ecsda\\bit 1: xts\\bit 2: hmac\\bit 3: ds\\bit 4: psram
+\label{fielddesc:EFUSEXTSDPAPSEUDOLEVEL}\item [EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL] Represents the XTS pseudo-round anti-DPA attack function control. (RO)\\0: controlled by register\\1-3: the higher the value is, the more pseudo-rounds are inserted to the XTS-AES calculation
+\label{fielddesc:EFUSEHPPWRSRCSEL}\item [EFUSE\_HP\_PWR\_SRC\_SEL] Represents the HP system power source selection. (RO)\\0: LDO\\1: DCDC
+\label{fielddesc:EFUSESECUREBOOTSHA384EN}\item [EFUSE\_SECURE\_BOOT\_SHA384\_EN] Represents whether secure boot using SHA-384 is enabled. (RO)\\0: disable\\1: enable
+\label{fielddesc:EFUSEDISWDT}\item [EFUSE\_DIS\_WDT] Represents whether the watchdog is disabled. (RO)
+\label{fielddesc:EFUSEDISSWD}\item [EFUSE\_DIS\_SWD] Represents whether the super-watchdog is disabled. (RO)
+\label{fielddesc:EFUSEPVTGLITCHMODE}\item [EFUSE\_PVT\_GLITCH\_MODE] Configures PVT glitch handling mode. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS0\_REG}{0x0044}\label{regdesc:EFUSERDMACSYS0REG}
+\regfield{\rotatebox{15}{EFUSE\_MAC\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMAC0}\item [EFUSE\_MAC\_0] Represents the MAC address (lower 32 bits). (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS1\_REG}{0x0048}\label{regdesc:EFUSERDMACSYS1REG}
+\regfield{\rotatebox{15}{(reserved)}}{16}{16}{0000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_MAC\_1}}{16}{0}{{0x00}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMAC1}\item [EFUSE\_MAC\_1] Represents the MAC address (upper 16 bits). (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS3\_REG}{0x0050}\label{regdesc:EFUSERDMACSYS3REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_0}}{14}{18}{{0x00}}%
+\regfield{\rotatebox{15}{(reserved)}}{18}{0}{000000000000000000}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART00}\item [EFUSE\_SYS\_DATA\_PART0\_0] Represents the first 14 bits of Part~0 of system data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS4\_REG}{0x0054}\label{regdesc:EFUSERDMACSYS4REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART01}\item [EFUSE\_SYS\_DATA\_PART0\_1] Represents the first 32-bit field of Part~0 of system data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_MAC\_SYS5\_REG}{0x0058}\label{regdesc:EFUSERDMACSYS5REG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART0\_2}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART02}\item [EFUSE\_SYS\_DATA\_PART0\_2] Represents the second 32-bit field of Part~0 of system data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART1\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x005C+0x4*\regindex{n}}\label{regdesc:EFUSERDSYSPART1DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART1\_0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART1N}\item [EFUSE\_SYS\_DATA\_PART1\_\regindex{n}] Represents 32-bit word \regindex{n} of Part~1 of system data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_USR\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x007C+0x4*\regindex{n}}\label{regdesc:EFUSERDUSRDATANREG}
+\regfield{\rotatebox{15}{EFUSE\_USR\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEUSRDATAN}\item [EFUSE\_USR\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of BLOCK3 (user data). (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY0\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x009C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY0DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY0\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY0DATAN}\item [EFUSE\_KEY0\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY0. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY1\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00BC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY1DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY1\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY1DATAN}\item [EFUSE\_KEY1\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY1. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY2\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00DC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY2DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY2\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY2DATAN}\item [EFUSE\_KEY2\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY2. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY3\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x00FC+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY3DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY3\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY3DATAN}\item [EFUSE\_KEY3\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY3. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY4\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x011C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY4DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY4\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY4DATAN}\item [EFUSE\_KEY4\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY4. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_KEY5\_DATA\regindex{n}\_REG (\regindex{n}: 0-7)}{0x013C+0x4*\regindex{n}}\label{regdesc:EFUSERDKEY5DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_KEY5\_DATA0}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEY5DATAN}\item [EFUSE\_KEY5\_DATA\regindex{n}] Represents 32-bit word \regindex{n} of KEY5. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART2\_DATA\regindex{n}\_REG (\regindex{n}: 0-5)}{0x015C+0x4*\regindex{n}}\label{regdesc:EFUSERDSYSPART2DATANREG}
+\regfield{\rotatebox{15}{EFUSE\_SYS\_DATA\_PART2\_\regindex{n}}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESYSDATAPART2N}\item [EFUSE\_SYS\_DATA\_PART2\_\regindex{n}] Represents 32-bit word \regindex{n} of the second part of system data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_SYS\_PART2\_DATA7\_REG}{0x0178}\label{regdesc:EFUSERDSYSPART2DATA7REG}
+\regfield{\rotatebox{15}{(reserved)}}{26}{6}{00000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_OTG11\_EXCHG\_PINS}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_DEVICE\_EXCHG\_PINS}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{0}{0000}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEUSBDEVICEEXCHGPINS}\item [EFUSE\_USB\_DEVICE\_EXCHG\_PINS] Represents whether USB device exchange pins of D+ and D- are enabled. (RO)
+\label{fielddesc:EFUSEUSBOTG11EXCHGPINS}\item [EFUSE\_USB\_OTG11\_EXCHG\_PINS] Represents whether USB OTG11 exchange pins of D+ and D- are enabled. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR0\_REG}{0x017C}\label{regdesc:EFUSERDREPEATDATAERR0REG}
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7\_ERR}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HUK\_GEN\_STATE\_ERR}}{5}{26}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_USB\_PHY\_SEL\_ERR}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6\_ERR}}{4}{21}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_PAD\_JTAG\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SOFT\_DIS\_JTAG\_ERR}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_JTAG\_SEL\_ENABLE\_ERR}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_TWAI\_ERR}}{1}{14}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS\_ERR}}{1}{13}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_FORCE\_DOWNLOAD\_ERR}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{11}{0}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2\_ERR}}{1}{10}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_JTAG\_ERR}}{1}{9}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1\_ERR}}{2}{7}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_DIS\_ERR}}{7}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDDISERR}\item [EFUSE\_RD\_DIS\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERDDIS]{EFUSE\_\-RD\_\-DIS} (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_0\_1\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR01]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-0\_\-1} (RO)
+\label{fielddesc:EFUSEDISUSBJTAGERR}\item [EFUSE\_DIS\_USB\_JTAG\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISUSBJTAG]{EFUSE\_\-DIS\_\-USB\_\-JTAG} (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_2\_2\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR22]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-2\_\-2} (RO)
+\label{fielddesc:EFUSEDISFORCEDOWNLOADERR}\item [EFUSE\_DIS\_FORCE\_DOWNLOAD\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISFORCEDOWNLOAD]{EFUSE\_\-DIS\_\-FORCE\_\-DOWNLOAD} (RO)
+\label{fielddesc:EFUSESPIDOWNLOADMSPIDISERR}\item [EFUSE\_SPI\_DOWNLOAD\_MSPI\_DIS\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESPIDOWNLOADMSPIDIS]{EFUSE\_\-SPI\_\-DOWNLOAD\_\-MSPI\_\-DIS} (RO)
+\label{fielddesc:EFUSEDISTWAIERR}\item [EFUSE\_DIS\_TWAI\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISTWAI]{EFUSE\_\-DIS\_\-TWAI} (RO)
+\label{fielddesc:EFUSEJTAGSELENABLEERR}\item [EFUSE\_JTAG\_SEL\_ENABLE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEJTAGSELENABLE]{EFUSE\_\-JTAG\_\-SEL\_\-ENABLE} (RO)
+\label{fielddesc:EFUSESOFTDISJTAGERR}\item [EFUSE\_SOFT\_DIS\_JTAG\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESOFTDISJTAG]{EFUSE\_\-SOFT\_\-DIS\_\-JTAG} (RO)
+\label{fielddesc:EFUSEDISPADJTAGERR}\item [EFUSE\_DIS\_PAD\_JTAG\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISPADJTAG]{EFUSE\_\-DIS\_\-PAD\_\-JTAG} (RO)
+\label{fielddesc:EFUSEDISDOWNLOADMANUALENCRYPTERR}\item [EFUSE\_DIS\_DOWNLOAD\_MANUAL\_ENCRYPT\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISDOWNLOADMANUALENCRYPT]{EFUSE\_\-DIS\_\-DOWNLOAD\_\-MANUAL\_\-ENCRYPT} (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_3\_6\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR36]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-3\_\-6} (RO)
+\label{fielddesc:EFUSEUSBPHYSELERR}\item [EFUSE\_USB\_PHY\_SEL\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEUSBPHYSEL]{EFUSE\_\-USB\_\-PHY\_\-SEL} (RO)
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR0\_REG}{0x017C}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+
+\label{fielddesc:EFUSEHUKGENSTATEERR}\item [EFUSE\_HUK\_GEN\_STATE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEHUKGENSTATE]{EFUSE\_\-HUK\_\-GEN\_\-STATE} (RO)
+
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_7\_7\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR77]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-7\_\-7} (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR1\_REG}{0x0180}\label{regdesc:EFUSERDREPEATDATAERR1REG}
+\regfield{\rotatebox{20}{EFUSE\_KEY\_PURPOSE\_1\_ERR}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KEY\_PURPOSE\_0\_ERR}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2\_ERR}}{1}{23}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1\_ERR}}{1}{22}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_SPI\_BOOT\_CRYPT\_CNT\_ERR}}{3}{18}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_WDT\_DELAY\_SEL\_ERR}}{1}{17}{{0}}%
+\regfield{\rotatebox{20}{(reserved)}}{1}{16}{0}%
+\regfield{\rotatebox{20}{EFUSE\_ECC\_FORCE\_CONST\_TIME\_ERR}}{1}{15}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_XTS\_KEY\_LENGTH\_256\_ERR}}{1}{14}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY\_ERR}}{1}{13}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_ERR}}{4}{9}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_ERR}}{4}{5}{{0x0}}%
+\regfield{\rotatebox{20}{EFUSE\_KM\_RND\_SWITCH\_CYCLE\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11\_ERR}}{1}{3}{{0}}%
+\regfield{\rotatebox{20}{EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10\_ERR}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_8\_10\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR810]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-8\_\-10} (RO)
+\label{fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111ERR}\item [EFUSE\_RECOVERY\_BOOTLOADER\_FLASH\_SECTOR\_11\_11\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSERECOVERYBOOTLOADERFLASHSECTOR1111]{EFUSE\_\-RECOVERY\_\-BOOTLOADER\_\-FLASH\_\-SECTOR\_\-11\_\-11} (RO)
+\label{fielddesc:EFUSEKMRNDSWITCHCYCLEERR}\item [EFUSE\_KM\_RND\_SWITCH\_CYCLE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMRNDSWITCHCYCLE]{EFUSE\_\-KM\_\-RND\_\-SWITCH\_\-CYCLE} (RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEERR}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCE]{EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE} (RO)
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYERR}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEY]{EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY} (RO)
+\label{fielddesc:EFUSEFORCEDISABLESWINITKEYERR}\item [EFUSE\_FORCE\_DISABLE\_SW\_INIT\_KEY\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFORCEDISABLESWINITKEY]{EFUSE\_\-FORCE\_\-DISABLE\_\-SW\_\-INIT\_\-KEY} (RO)
+\label{fielddesc:EFUSEKMXTSKEYLENGTH256ERR}\item [EFUSE\_KM\_XTS\_KEY\_LENGTH\_256\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMXTSKEYLENGTH256]{EFUSE\_\-KM\_\-XTS\_\-KEY\_\-LENGTH\_\-256} (RO)
+\label{fielddesc:EFUSEECCFORCECONSTTIMEERR}\item [EFUSE\_ECC\_FORCE\_CONST\_TIME\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEECCFORCECONSTTIME]{EFUSE\_\-ECC\_\-FORCE\_\-CONST\_\-TIME} (RO)
+\label{fielddesc:EFUSEWDTDELAYSELERR}\item [EFUSE\_WDT\_DELAY\_SEL\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEWDTDELAYSEL]{EFUSE\_\-WDT\_\-DELAY\_\-SEL} (RO)
+\label{fielddesc:EFUSESPIBOOTCRYPTCNTERR}\item [EFUSE\_SPI\_BOOT\_CRYPT\_CNT\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESPIBOOTCRYPTCNT]{EFUSE\_\-SPI\_\-BOOT\_\-CRYPT\_\-CNT} (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE0ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE0\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE0]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE0} (RO)
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR1\_REG}{0x0180}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE1ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE1\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE1]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE1} (RO)
+\label{fielddesc:EFUSESECUREBOOTKEYREVOKE2ERR}\item [EFUSE\_SECURE\_BOOT\_KEY\_REVOKE2\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTKEYREVOKE2]{EFUSE\_\-SECURE\_\-BOOT\_\-KEY\_\-REVOKE2} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0ERR}\item [EFUSE\_KEY\_PURPOSE\_0\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE0]{EFUSE\_\-KEY\_\-PURPOSE\_\-0} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE1ERR}\item [EFUSE\_KEY\_PURPOSE\_1\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE1]{EFUSE\_\-KEY\_\-PURPOSE\_\-1} (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR2\_REG}{0x0184}\label{regdesc:EFUSERDREPEATDATAERR2REG}
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_TPUW\_ERR}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE\_ERR}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_FLASH\_ECC\_EN\_ERR}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{24}{00}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H\_ERR}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H\_ERR}}{1}{22}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_EN\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_CLK\_ENABLE\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{18}{0}%
+\regfield{\rotatebox{15}{EFUSE\_SEC\_DPA\_LEVEL\_ERR}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_ERR}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_ERR}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_ERR}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_ERR}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEKEYPURPOSE2ERR}\item [EFUSE\_KEY\_PURPOSE\_2\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE2]{EFUSE\_\-KEY\_\-PURPOSE\_\-2} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE3ERR}\item [EFUSE\_KEY\_PURPOSE\_3\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE3]{EFUSE\_\-KEY\_\-PURPOSE\_\-3} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE4ERR}\item [EFUSE\_KEY\_PURPOSE\_4\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE4]{EFUSE\_\-KEY\_\-PURPOSE\_\-4} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE5ERR}\item [EFUSE\_KEY\_PURPOSE\_5\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE5]{EFUSE\_\-KEY\_\-PURPOSE\_\-5} (RO)
+\label{fielddesc:EFUSESECDPALEVELERR}\item [EFUSE\_SEC\_DPA\_LEVEL\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECDPALEVEL]{EFUSE\_\-SEC\_\-DPA\_\-LEVEL} (RO)
+\label{fielddesc:EFUSEXTSDPACLKENABLEERR}\item [EFUSE\_XTS\_DPA\_CLK\_ENABLE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEXTSDPACLKENABLE]{EFUSE\_\-XTS\_\-DPA\_\-CLK\_\-ENABLE} (RO)
+\label{fielddesc:EFUSESECUREBOOTENERR}\item [EFUSE\_SECURE\_BOOT\_EN\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTEN]{EFUSE\_\-SECURE\_\-BOOT\_\-EN} (RO)
+\label{fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKEERR}\item [EFUSE\_SECURE\_BOOT\_AGGRESSIVE\_REVOKE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTAGGRESSIVEREVOKE]{EFUSE\_\-SECURE\_\-BOOT\_\-AGGRESSIVE\_\-REVOKE} (RO)
+\label{fielddesc:EFUSEKMDEPLOYONLYONCEHERR}\item [EFUSE\_KM\_DEPLOY\_ONLY\_ONCE\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMDEPLOYONLYONCEH]{EFUSE\_\-KM\_\-DEPLOY\_\-ONLY\_\-ONCE\_\-H} (RO)
+\label{fielddesc:EFUSEFORCEUSEKEYMANAGERKEYHERR}\item [EFUSE\_FORCE\_USE\_KEY\_MANAGER\_KEY\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFORCEUSEKEYMANAGERKEYH]{EFUSE\_\-FORCE\_\-USE\_\-KEY\_\-MANAGER\_\-KEY\_\-H} (RO)
+\label{fielddesc:EFUSEFLASHECCENERR}\item [EFUSE\_FLASH\_ECC\_EN\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFLASHECCEN]{EFUSE\_\-FLASH\_\-ECC\_\-EN} (RO)
+\label{fielddesc:EFUSEDISUSBOTGDOWNLOADMODEERR}\item [EFUSE\_DIS\_USB\_OTG\_DOWNLOAD\_MODE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISUSBOTGDOWNLOADMODE]{EFUSE\_\-DIS\_\-USB\_\-OTG\_\-DOWNLOAD\_\-MODE} (RO)
+\label{fielddesc:EFUSEFLASHTPUWERR}\item [EFUSE\_FLASH\_TPUW\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFLASHTPUW]{EFUSE\_\-FLASH\_\-TPUW} (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR3\_REG}{0x0188}\label{regdesc:EFUSERDREPEATDATAERR3REG}
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_4\_H\_ERR}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_3\_H\_ERR}}{1}{30}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_2\_H\_ERR}}{1}{29}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_1\_H\_ERR}}{1}{28}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_0\_H\_ERR}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HYS\_EN\_PAD\_ERR}}{1}{26}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE\_ERR}}{1}{25}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_VERSION\_ERR}}{16}{9}{{0x00}}%
+\regfield{\rotatebox{15}{EFUSE\_FORCE\_SEND\_RESUME\_ERR}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_UART\_PRINT\_CONTROL\_ERR}}{2}{6}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_ENABLE\_SECURITY\_DOWNLOAD\_ERR}}{1}{5}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_LOCK\_KM\_KEY\_ERR}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT\_ERR}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DIRECT\_BOOT\_ERR}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_DOWNLOAD\_MODE\_ERR}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDISDOWNLOADMODEERR}\item [EFUSE\_DIS\_DOWNLOAD\_MODE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISDOWNLOADMODE]{EFUSE\_\-DIS\_\-DOWNLOAD\_\-MODE} (RO)
+\label{fielddesc:EFUSEDISDIRECTBOOTERR}\item [EFUSE\_DIS\_DIRECT\_BOOT\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISDIRECTBOOT]{EFUSE\_\-DIS\_\-DIRECT\_\-BOOT} (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGROMPRINTERR}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_ROM\_PRINT\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGROMPRINT]{EFUSE\_\-DIS\_\-USB\_\-SERIAL\_\-JTAG\_\-ROM\_\-PRINT} (RO)
+\label{fielddesc:EFUSELOCKKMKEYERR}\item [EFUSE\_LOCK\_KM\_KEY\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSELOCKKMKEY]{EFUSE\_\-LOCK\_\-KM\_\-KEY} (RO)
+\label{fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODEERR}\item [EFUSE\_DIS\_USB\_SERIAL\_JTAG\_DOWNLOAD\_MODE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISUSBSERIALJTAGDOWNLOADMODE]{EFUSE\_\-DIS\_\-USB\_\-SERIAL\_\-JTAG\_\-DOWNLOAD\_\-MODE} (RO)
+\label{fielddesc:EFUSEENABLESECURITYDOWNLOADERR}\item [EFUSE\_ENABLE\_SECURITY\_DOWNLOAD\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEENABLESECURITYDOWNLOAD]{EFUSE\_\-ENABLE\_\-SECURITY\_\-DOWNLOAD} (RO)
+\label{fielddesc:EFUSEUARTPRINTCONTROLERR}\item [EFUSE\_UART\_PRINT\_CONTROL\_ERR] Represents the programming error of EFUSE\_UART\_PRINT\_CONTROL (RO)
+\label{fielddesc:EFUSEFORCESENDRESUMEERR}\item [EFUSE\_FORCE\_SEND\_RESUME\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEFORCESENDRESUME]{EFUSE\_\-FORCE\_\-SEND\_\-RESUME} (RO)
+\label{fielddesc:EFUSESECUREVERSIONERR}\item [EFUSE\_SECURE\_VERSION\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREVERSION]{EFUSE\_\-SECURE\_\-VERSION} (RO)
+\label{fielddesc:EFUSESECUREBOOTDISABLEFASTWAKEERR}\item [EFUSE\_SECURE\_BOOT\_DISABLE\_FAST\_WAKE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTDISABLEFASTWAKE]{EFUSE\_\-SECURE\_\-BOOT\_\-DISABLE\_\-FAST\_\-WAKE} (RO)
+\label{fielddesc:EFUSEHYSENPADERR}\item [EFUSE\_HYS\_EN\_PAD\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEHYSENPAD]{EFUSE\_\-HYS\_\-EN\_\-PAD} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE0HERR}\item [EFUSE\_KEY\_PURPOSE\_0\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE0H]{EFUSE\_\-KEY\_\-PURPOSE\_\-0\_\-H} (RO)
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR3\_REG}{0x0188}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+\label{fielddesc:EFUSEKEYPURPOSE1HERR}\item [EFUSE\_KEY\_PURPOSE\_1\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE1H]{EFUSE\_\-KEY\_\-PURPOSE\_\-1\_\-H} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE2HERR}\item [EFUSE\_KEY\_PURPOSE\_2\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE2H]{EFUSE\_\-KEY\_\-PURPOSE\_\-2\_\-H} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE3HERR}\item [EFUSE\_KEY\_PURPOSE\_3\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE3H]{EFUSE\_\-KEY\_\-PURPOSE\_\-3\_\-H} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE4HERR}\item [EFUSE\_KEY\_PURPOSE\_4\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE4H]{EFUSE\_\-KEY\_\-PURPOSE\_\-4\_\-H} (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_REPEAT\_DATA\_ERR4\_REG}{0x018C}\label{regdesc:EFUSERDREPEATDATAERR4REG}
+\regfield{\rotatebox{15}{(reserved)}}{8}{24}{00000000}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_MODE\_ERR}}{2}{22}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_SWD\_ERR}}{1}{21}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DIS\_WDT\_ERR}}{1}{20}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_SECURE\_BOOT\_SHA384\_EN\_ERR}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_HP\_PWR\_SRC\_SEL\_ERR}}{1}{18}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL\_ERR}}{2}{16}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{4}{12}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_ERR}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H\_ERR}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{2}{5}{00}%
+\regfield{\rotatebox{15}{EFUSE\_KEY\_PURPOSE\_5\_H\_ERR}}{1}{4}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{3}{0}%
+\regfield{\rotatebox{15}{EFUSE\_PVT\_GLITCH\_EN\_ERR}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_0PXA\_TIEH\_SEL\_0\_ERR}}{2}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSE0PXATIEHSEL0ERR}\item [EFUSE\_0PXA\_TIEH\_SEL\_0\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSE0PXATIEHSEL0]{EFUSE\_\-0PXA\_\-TIEH\_\-SEL\_\-0} (RO)
+\label{fielddesc:EFUSEPVTGLITCHENERR}\item [EFUSE\_PVT\_GLITCH\_EN\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEPVTGLITCHEN]{EFUSE\_\-PVT\_\-GLITCH\_\-EN} (RO)
+\label{fielddesc:EFUSEKEYPURPOSE5HERR}\item [EFUSE\_KEY\_PURPOSE\_5\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKEYPURPOSE5H]{EFUSE\_\-KEY\_\-PURPOSE\_\-5\_\-H} (RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEHERR}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_H\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODEH]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE\_\-H} (RO)
+\label{fielddesc:EFUSEKMDISABLEDEPLOYMODEERR}\item [EFUSE\_KM\_DISABLE\_DEPLOY\_MODE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEKMDISABLEDEPLOYMODE]{EFUSE\_\-KM\_\-DISABLE\_\-DEPLOY\_\-MODE} (RO)
+\label{fielddesc:EFUSEXTSDPAPSEUDOLEVELERR}\item [EFUSE\_XTS\_DPA\_PSEUDO\_LEVEL\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEXTSDPAPSEUDOLEVEL]{EFUSE\_\-XTS\_\-DPA\_\-PSEUDO\_\-LEVEL} (RO)
+\label{fielddesc:EFUSEHPPWRSRCSELERR}\item [EFUSE\_HP\_PWR\_SRC\_SEL\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEHPPWRSRCSEL]{EFUSE\_\-HP\_\-PWR\_\-SRC\_\-SEL} (RO)
+\label{fielddesc:EFUSESECUREBOOTSHA384ENERR}\item [EFUSE\_SECURE\_BOOT\_SHA384\_EN\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSESECUREBOOTSHA384EN]{EFUSE\_\-SECURE\_\-BOOT\_\-SHA384\_\-EN} (RO)
+\label{fielddesc:EFUSEDISWDTERR}\item [EFUSE\_DIS\_WDT\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISWDT]{EFUSE\_\-DIS\_\-WDT} (RO)
+\label{fielddesc:EFUSEDISSWDERR}\item [EFUSE\_DIS\_SWD\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEDISSWD]{EFUSE\_\-DIS\_\-SWD} (RO)
+\label{fielddesc:EFUSEPVTGLITCHMODEERR}\item [EFUSE\_PVT\_GLITCH\_MODE\_ERR] Represents the programming error of \hyperref[fielddesc:EFUSEPVTGLITCHMODE]{EFUSE\_\-PVT\_\-GLITCH\_\-MODE} (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_ECDSA\_REG}{0x01B0}\label{regdesc:EFUSEECDSAREG}
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P384\_H\_BLK}}{4}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P384\_L\_BLK}}{4}{24}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P256\_BLK}}{4}{20}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CUR\_ECDSA\_P192\_BLK}}{4}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P384\_H\_BLK}}{4}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P384\_L\_BLK}}{4}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P256\_BLK}}{4}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_CFG\_ECDSA\_P192\_BLK}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSECFGECDSAP192BLK}\item [EFUSE\_CFG\_ECDSA\_P192\_BLK] Configures which block to use for ECDSA P192 key output. (R/W)
+\label{fielddesc:EFUSECFGECDSAP256BLK}\item [EFUSE\_CFG\_ECDSA\_P256\_BLK] Configures which block to use for ECDSA P256 key output. (R/W)
+\label{fielddesc:EFUSECFGECDSAP384LBLK}\item [EFUSE\_CFG\_ECDSA\_P384\_L\_BLK] Configures which block to use for ECDSA P384 key low part output. (R/W)
+\label{fielddesc:EFUSECFGECDSAP384HBLK}\item [EFUSE\_CFG\_ECDSA\_P384\_H\_BLK] Configures which block to use for ECDSA P384 key high part output. (R/W)
+\label{fielddesc:EFUSECURECDSAP192BLK}\item [EFUSE\_CUR\_ECDSA\_P192\_BLK] Represents which block is used for ECDSA P192 key output. (RO)
+\label{fielddesc:EFUSECURECDSAP256BLK}\item [EFUSE\_CUR\_ECDSA\_P256\_BLK] Represents which block is used for ECDSA P256 key output. (RO)
+\label{fielddesc:EFUSECURECDSAP384LBLK}\item [EFUSE\_CUR\_ECDSA\_P384\_L\_BLK] Represents which block is used for ECDSA P384 key low part output. (RO)
+\label{fielddesc:EFUSECURECDSAP384HBLK}\item [EFUSE\_CUR\_ECDSA\_P384\_H\_BLK] Represents which block is used for ECDSA P384 key high part output. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR0\_REG}{0x01C0}\label{regdesc:EFUSERDRSDATAERR0REG}
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY4\_DATA\_FAIL}}{1}{31}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY4\_DATA\_ERR\_NUM}}{3}{28}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY3\_DATA\_FAIL}}{1}{27}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY3\_DATA\_ERR\_NUM}}{3}{24}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY2\_DATA\_FAIL}}{1}{23}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY2\_DATA\_ERR\_NUM}}{3}{20}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY1\_DATA\_FAIL}}{1}{19}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY1\_DATA\_ERR\_NUM}}{3}{16}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY0\_DATA\_FAIL}}{1}{15}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY0\_DATA\_ERR\_NUM}}{3}{12}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_USR\_DATA\_FAIL}}{1}{11}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_USR\_DATA\_ERR\_NUM}}{3}{8}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART1\_DATA\_FAIL}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART1\_DATA\_ERR\_NUM}}{3}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_MAC\_SYS\_FAIL}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_MAC\_SYS\_ERR\_NUM}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDMACSYSERRNUM}\item [EFUSE\_RD\_MAC\_SYS\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_mac\_sys.
+\label{fielddesc:EFUSERDMACSYSFAIL}\item [EFUSE\_RD\_MAC\_SYS\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_mac\_sys is reliable\\1: means that programming rd\_mac\_sys failed and the number of error bytes is over 6
+\label{fielddesc:EFUSERDSYSPART1DATAERRNUM}\item [EFUSE\_RD\_SYS\_PART1\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_sys\_part1\_data (RO)
+\label{fielddesc:EFUSERDSYSPART1DATAFAIL}\item [EFUSE\_RD\_SYS\_PART1\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_sys\_part1\_data is reliable\\1: means that programming rd\_sys\_part1\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDUSRDATAERRNUM}\item [EFUSE\_RD\_USR\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_usr\_data (RO)
+\label{fielddesc:EFUSERDUSRDATAFAIL}\item [EFUSE\_RD\_USR\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_usr\_data is reliable\\1: means that programming rd\_usr\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDKEY0DATAERRNUM}\item [EFUSE\_RD\_KEY0\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key0\_data (RO)
+\label{fielddesc:EFUSERDKEY0DATAFAIL}\item [EFUSE\_RD\_KEY0\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key0\_data is reliable\\1: means that programming rd\_key0\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDKEY1DATAERRNUM}\item [EFUSE\_RD\_KEY1\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key1\_data (RO)
+\label{fielddesc:EFUSERDKEY1DATAFAIL}\item [EFUSE\_RD\_KEY1\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key1\_data is reliable\\1: means that programming rd\_key1\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDKEY2DATAERRNUM}\item [EFUSE\_RD\_KEY2\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key2\_data (RO)
+
+\item [Continued on the next page...]
+\end{reglist}\end{regdesc}
+\end{register}
+\addtocounter{Regfloat}{-1}
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR0\_REG}{0x01C0}
+\begin{regdesc}\begin{reglist}
+\item [Continued from the previous page...]
+
+\label{fielddesc:EFUSERDKEY2DATAFAIL}\item [EFUSE\_RD\_KEY2\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key2\_data is reliable\\1: means that programming rd\_key2\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDKEY3DATAERRNUM}\item [EFUSE\_RD\_KEY3\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key3\_data (RO)
+\label{fielddesc:EFUSERDKEY3DATAFAIL}\item [EFUSE\_RD\_KEY3\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key3\_data is reliable\\1: means that programming rd\_key3\_data failed and the number of error bytes is over 6.
+\label{fielddesc:EFUSERDKEY4DATAERRNUM}\item [EFUSE\_RD\_KEY4\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key4\_data.
+\label{fielddesc:EFUSERDKEY4DATAFAIL}\item [EFUSE\_RD\_KEY4\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key4\_data is reliable\\1: means that programming rd\_key4\_data failed and the number of error bytes is over 6.
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_RS\_DATA\_ERR1\_REG}{0x01C4}\label{regdesc:EFUSERDRSDATAERR1REG}
+\regfield{\rotatebox{15}{(reserved)}}{24}{8}{000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART2\_DATA\_FAIL}}{1}{7}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_SYS\_PART2\_DATA\_ERR\_NUM}}{3}{4}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY5\_DATA\_FAIL}}{1}{3}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_RD\_KEY5\_DATA\_ERR\_NUM}}{3}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSERDKEY5DATAERRNUM}\item [EFUSE\_RD\_KEY5\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_key5\_data (RO)
+\label{fielddesc:EFUSERDKEY5DATAFAIL}\item [EFUSE\_RD\_KEY5\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_key5\_data is reliable\\1: means that programming rd\_key5\_data failed and the number of error bytes is over 6
+\label{fielddesc:EFUSERDSYSPART2DATAERRNUM}\item [EFUSE\_RD\_SYS\_PART2\_DATA\_ERR\_NUM] Represents the error number of registers. (RO)\\The value of this signal means the number of error bytes in rd\_sys\_part2\_data (RO)
+\label{fielddesc:EFUSERDSYSPART2DATAFAIL}\item [EFUSE\_RD\_SYS\_PART2\_DATA\_FAIL] Represents the error status of register. (RO)\\0: means no failure and that the data of rd\_sys\_part2\_data is reliable\\1: means that programming rd\_sys\_part2\_data failed and the number of error bytes is over 6
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CLK\_REG}{0x01C8}\label{regdesc:EFUSECLKREG}
+\regfield{\rotatebox{15}{(reserved)}}{15}{17}{000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_CLK\_EN}}{1}{16}{{0}}%
+\regfield{\rotatebox{15}{(reserved)}}{13}{3}{0000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_FORCE\_PU}}{1}{2}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_CLK\_FORCE\_ON}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_MEM\_FORCE\_PD}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEMEMFORCEPD}\item [EFUSE\_MEM\_FORCE\_PD] Configures whether to force eFuse SRAM into power-saving mode. (R/W)
+\label{fielddesc:EFUSEMEMCLKFORCEON}\item [EFUSE\_MEM\_CLK\_FORCE\_ON] Configures whether to force activate clock signal of eFuse SRAM. (R/W)
+\label{fielddesc:EFUSEMEMFORCEPU}\item [EFUSE\_MEM\_FORCE\_PU] Configures whether to force eFuse SRAM into working mode. (R/W)
+\label{fielddesc:EFUSECLKEN}\item [EFUSE\_CLK\_EN] Configures whether to force enable eFuse register configuration clock signal. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CONF\_REG}{0x01CC}\label{regdesc:EFUSECONFREG}
+\regfield{\rotatebox{15}{(reserved)}}{16}{16}{0000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_OP\_CODE}}{16}{0}{{0x00}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEOPCODE}\item [EFUSE\_OP\_CODE] Configures the operation command. (R/W)\\0x5A5A: programming operation command\\0x5AA5: read operation command
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_STATUS\_REG}{0x01D0}\label{regdesc:EFUSESTATUSREG}
+\regfield{\rotatebox{15}{(reserved)}}{12}{20}{000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_BLK0\_VALID\_BIT\_CNT}}{10}{10}{{0x0}}%
+\regfield{\rotatebox{15}{(reserved)}}{6}{4}{000000}%
+\regfield{\rotatebox{15}{EFUSE\_STATE}}{4}{0}{{0x0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSESTATE}\item [EFUSE\_STATE] Represents the state of the eFuse state machine. (RO)
+\label{fielddesc:EFUSEBLK0VALIDBITCNT}\item [EFUSE\_BLK0\_VALID\_BIT\_CNT] Represents the number of block valid bits. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_CMD\_REG}{0x01D4}\label{regdesc:EFUSECMDREG}
+\regfield{\rotatebox{15}{(reserved)}}{26}{6}{00000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_BLK\_NUM}}{4}{2}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_CMD}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_CMD}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADCMD}\item [EFUSE\_READ\_CMD] Configures whether to send read command. (R/W/SC)
+\label{fielddesc:EFUSEPGMCMD}\item [EFUSE\_PGM\_CMD] Configures whether to send programming command. (R/W/SC)
+\label{fielddesc:EFUSEBLKNUM}\item [EFUSE\_BLK\_NUM] Configures the serial number of the block to be programmed. (R/W)\\Value 0-10 corresponds to block number 0-10, respectively.
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_RAW\_REG}{0x01D8}\label{regdesc:EFUSEINTRAWREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_RAW}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_RAW}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTRAW}\item [EFUSE\_READ\_DONE\_INT\_RAW] The raw interrupt status of read\_done interrupt. (R/SS/WTC)
+\label{fielddesc:EFUSEPGMDONEINTRAW}\item [EFUSE\_PGM\_DONE\_INT\_RAW] The raw interrupt status of pgm\_done interrupt. (R/SS/WTC)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_ST\_REG}{0x01DC}\label{regdesc:EFUSEINTSTREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_ST}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_ST}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTST}\item [EFUSE\_READ\_DONE\_INT\_ST] The interrupt status of read\_done interrupt. (RO)
+\label{fielddesc:EFUSEPGMDONEINTST}\item [EFUSE\_PGM\_DONE\_INT\_ST] The interrupt status of pgm\_done interrupt. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_ENA\_REG}{0x01E0}\label{regdesc:EFUSEINTENAREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_ENA}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_ENA}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTENA}\item [EFUSE\_READ\_DONE\_INT\_ENA] Write 1 to enable read\_done interrupt. (R/W)
+\label{fielddesc:EFUSEPGMDONEINTENA}\item [EFUSE\_PGM\_DONE\_INT\_ENA] Write 1 to enable pgm\_done interrupt. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_INT\_CLR\_REG}{0x01E4}\label{regdesc:EFUSEINTCLRREG}
+\regfield{\rotatebox{15}{(reserved)}}{30}{2}{000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_PGM\_DONE\_INT\_CLR}}{1}{1}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_READ\_DONE\_INT\_CLR}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEREADDONEINTCLR}\item [EFUSE\_READ\_DONE\_INT\_CLR] Write 1 to clear read\_done interrupt. (WT)
+\label{fielddesc:EFUSEPGMDONEINTCLR}\item [EFUSE\_PGM\_DONE\_INT\_CLR] Write 1 to clear pgm\_done interrupt. (WT)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_DAC\_CONF\_REG}{0x01E8}\label{regdesc:EFUSEDACCONFREG}
+\regfield{\rotatebox{15}{(reserved)}}{14}{18}{00000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_OE\_CLR}}{1}{17}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DAC\_NUM}}{8}{9}{{255}}%
+\regfield{\rotatebox{15}{(reserved)}}{1}{8}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_DAC\_CLK\_DIV}}{8}{0}{{23}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDACCLKDIV}\item [EFUSE\_DAC\_CLK\_DIV] Configures the division factor of the rising clock of the programming voltage. (R/W)
+\label{fielddesc:EFUSEDACNUM}\item [EFUSE\_DAC\_NUM] Configures the rising period of the programming voltage. (R/W)
+\label{fielddesc:EFUSEOECLR}\item [EFUSE\_OE\_CLR] Configures whether to reduce the power supply of the programming voltage. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_RD\_TIM\_CONF\_REG}{0x01EC}\label{regdesc:EFUSERDTIMCONFREG}
+\regfield{\rotatebox{15}{EFUSE\_READ\_INIT\_NUM}}{8}{24}{{0xf}}%
+\regfield{\rotatebox{15}{EFUSE\_TSUR\_A}}{8}{16}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_TRD}}{8}{8}{{0x2}}%
+\regfield{\rotatebox{15}{EFUSE\_THR\_A}}{8}{0}{{0x1}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSETHRA}\item [EFUSE\_THR\_A] Configures the read hold time. (R/W)
+\label{fielddesc:EFUSETRD}\item [EFUSE\_TRD] Configures the read time. (R/W)
+\label{fielddesc:EFUSETSURA}\item [EFUSE\_TSUR\_A] Configures the read setup time. (R/W)
+\label{fielddesc:EFUSEREADINITNUM}\item [EFUSE\_READ\_INIT\_NUM] Configures the waiting time of reading eFuse memory. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF1\_REG}{0x01F0}\label{regdesc:EFUSEWRTIMCONF1REG}
+\regfield{\rotatebox{15}{EFUSE\_THP\_A}}{8}{24}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_PWR\_ON\_NUM}}{16}{8}{{0x2667}}%
+\regfield{\rotatebox{15}{EFUSE\_TSUP\_A}}{8}{0}{{0x1}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSETSUPA}\item [EFUSE\_TSUP\_A] Configures the programming setup time. (R/W)
+\label{fielddesc:EFUSEPWRONNUM}\item [EFUSE\_PWR\_ON\_NUM] Configures the power up time for VDDQ. (R/W)
+\label{fielddesc:EFUSETHPA}\item [EFUSE\_THP\_A] Configures the programming hold time. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF2\_REG}{0x01F4}\label{regdesc:EFUSEWRTIMCONF2REG}
+\regfield{\rotatebox{15}{EFUSE\_TPGM}}{16}{16}{{0xa0}}%
+\regfield{\rotatebox{15}{EFUSE\_PWR\_OFF\_NUM}}{16}{0}{{0x140}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEPWROFFNUM}\item [EFUSE\_PWR\_OFF\_NUM] Configures the power outage time for VDDQ. (R/W)
+\label{fielddesc:EFUSETPGM}\item [EFUSE\_TPGM] Configures the active programming time. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_WR\_TIM\_CONF0\_RS\_BYPASS\_REG}{0x01F8}\label{regdesc:EFUSEWRTIMCONF0RSBYPASSREG}
+\regfield{\rotatebox{15}{(reserved)}}{11}{21}{00000000000}%
+\regfield{\rotatebox{15}{EFUSE\_TPGM\_INACTIVE}}{8}{13}{{0x1}}%
+\regfield{\rotatebox{15}{EFUSE\_UPDATE}}{1}{12}{{0}}%
+\regfield{\rotatebox{15}{EFUSE\_BYPASS\_RS\_BLK\_NUM}}{11}{1}{{0x0}}%
+\regfield{\rotatebox{15}{EFUSE\_BYPASS\_RS\_CORRECTION}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEBYPASSRSCORRECTION}\item [EFUSE\_BYPASS\_RS\_CORRECTION] Configures whether to bypass Reed-Solomon correction step. (R/W)
+\label{fielddesc:EFUSEBYPASSRSBLKNUM}\item [EFUSE\_BYPASS\_RS\_BLK\_NUM] Configures block number of programming twice operation. (R/W)
+\label{fielddesc:EFUSEUPDATE}\item [EFUSE\_UPDATE] Write 1 to update multi-bit register signals. (WT)
+\label{fielddesc:EFUSETPGMINACTIVE}\item [EFUSE\_TPGM\_INACTIVE] Configures the inactive programming time. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_DATE\_REG}{0x01FC}\label{regdesc:EFUSEDATEREG}
+\regfield{\rotatebox{15}{(reserved)}}{4}{28}{0000}%
+\regfield{\rotatebox{15}{EFUSE\_DATE}}{28}{0}{{0x2502190}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEDATE}\item [EFUSE\_DATE] Configures the eFuse version. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_WR\_DIS\_REG}{0x0800}\label{regdesc:EFUSEAPB2OTPWRDISREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_WR\_DIS}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0WRDIS}\item [EFUSE\_APB2OTP\_BLOCK0\_WR\_DIS] Represents OTP block0 write disable data. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP1\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0800+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP1WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP1\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP1WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP1\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block0 backup1. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP2\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0814+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP2WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP2\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP2WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP2\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block0 backup2. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP3\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x0828+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP3WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP3\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP3WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP3\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block0 backup3. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK0\_BACKUP4\_W\regindex{n}\_REG (\regindex{n}: 1-5)}{0x083C+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK0BACKUP4WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK0\_BACKUP4\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK0BACKUP4WN}\item [EFUSE\_APB2OTP\_BLOCK0\_BACKUP4\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block0 backup4. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK1\_W\regindex{n}\_REG (\regindex{n}: 1-9)}{0x0850+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK1WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK1\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK1WN}\item [EFUSE\_APB2OTP\_BLOCK1\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block1. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK2\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0874+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK2WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK2\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK2WN}\item [EFUSE\_APB2OTP\_BLOCK2\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block2. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK3\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08A0+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK3WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK3\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK3WN}\item [EFUSE\_APB2OTP\_BLOCK3\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block3. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK4\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08CC+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK4WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK4\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK4WN}\item [EFUSE\_APB2OTP\_BLOCK4\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block4. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK5\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x08F8+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK5WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK5\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK5WN}\item [EFUSE\_APB2OTP\_BLOCK5\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block5. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK6\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0924+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK6WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK6\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK6WN}\item [EFUSE\_APB2OTP\_BLOCK6\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block6. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK7\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x0950+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK7WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK7\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK7WN}\item [EFUSE\_APB2OTP\_BLOCK7\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block7. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK8\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x097C+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK8WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK8\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK8WN}\item [EFUSE\_APB2OTP\_BLOCK8\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block8. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK9\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x09A8+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK9WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK9\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK9WN}\item [EFUSE\_APB2OTP\_BLOCK9\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block9. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_BLK10\_W\regindex{n}\_REG (\regindex{n}: 1-11)}{0x09D4+0x4*\regindex{n}}\label{regdesc:EFUSEAPB2OTPBLK10WNREG}
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_BLOCK10\_W1}}{32}{0}{{0x000000}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPBLOCK10WN}\item [EFUSE\_APB2OTP\_BLOCK10\_W\regindex{n}] Represents 32-bit word \regindex{n} of OTP block10. (RO)
+\end{reglist}\end{regdesc}
+\end{register}
+
+\begin{register}{H}{EFUSE\_APB2OTP\_EN\_REG}{0x0A08}\label{regdesc:EFUSEAPB2OTPENREG}
+\regfield{\rotatebox{15}{(reserved)}}{31}{1}{0000000000000000000000000000000}%
+\regfield{\rotatebox{15}{EFUSE\_APB2OTP\_APB2OTP\_EN}}{1}{0}{{0}}%
+\reglabel{Reset}\regnewline%
+\begin{regdesc}\begin{reglist}
+\label{fielddesc:EFUSEAPB2OTPAPB2OTPEN}\item [EFUSE\_APB2OTP\_APB2OTP\_EN] Configures whether APB2OTP mode is enabled. (R/W)
+\end{reglist}\end{regdesc}
+\end{register}
